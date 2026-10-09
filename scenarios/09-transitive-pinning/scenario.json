@@ -1,0 +1,22 @@
+{
+  "id": "S13",
+  "name": "transitive-pinning",
+  "phase": 2,
+  "area": "central-management",
+  "entry": "TransitivePinning.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

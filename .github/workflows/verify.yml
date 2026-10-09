@@ -1,4 +1,4 @@
-name: Verify NuGet dependency-tree scenarios
+name: NuGet dependency graph QA
 
 on:
   push:
@@ -11,12 +11,28 @@ permissions:
   contents: read
 
 jobs:
-  verify:
-    name: Verify NuGet graphs through PSE
+  discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    outputs:
+      matrix: ${{ steps.scenarios.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: scenarios
+        name: Discover deterministic scenarios
+        shell: bash
+        run: echo "matrix=$(python3 tools/discover.py --mode deterministic)" >> "$GITHUB_OUTPUT"
+
+  scenario:
+    needs: discover
+    name: ${{ matrix.scenario.id }} - ${{ matrix.scenario.name }}
+    runs-on: ${{ matrix.scenario.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
     env:
       IR_TOKEN: ${{ secrets.IR_TOKEN }}
+      NUGET_PACKAGES: ${{ runner.temp }}/nuget-packages-${{ matrix.scenario.id }}
 
     steps:
       - name: Set up InvisiRisk PSE
@@ -25,42 +41,48 @@ jobs:
         with:
           api_url: https://app.stage.invisirisk.com
           app_token: ${{ secrets.IR_TOKEN }}
+          collect_dependencies: true
+          workdir: ${{ matrix.scenario.path }}
+          job_identifier: nuget-${{ matrix.scenario.id }}
+          job_label: ${{ matrix.scenario.id }} - ${{ matrix.scenario.name }}
 
-      - name: Check out repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
-      - name: Set up .NET 8
+      - name: Set up pinned .NET SDK
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.x
+          global-json-file: global.json
 
-      - name: Run all dependency-tree scenarios
-        run: python3 tools/run_suite.py
+      - name: Validate scenario contract
+        run: python tools/validate_scenarios.py
 
-      - name: Verify baseline Docker restore through PSE
-        if: env.IR_TOKEN != ''
-        run: >-
-          docker build
-          --tag ir-nuget-dependency-tree-qa
-          --build-arg BUILDKIT_SYNTAX=public.ecr.aws/w3c0c0n7/invisirisk/baf-buildkit:latest
-          --secret id=pse-ca,src="$PSE_CA_CERT_PATH"
-          --build-arg PSE_PROXY="http://$PSE_PROXY_IP:3128"
-          .
+      - name: Restore and verify scenario
+        run: python tools/run_scenario.py "${{ matrix.scenario.path }}"
 
-      - name: Verify baseline Docker restore without PSE
-        if: env.IR_TOKEN == ''
-        run: docker build --tag ir-nuget-dependency-tree-qa .
-
-      - name: Upload dependency evidence
+      - name: Upload scenario evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nuget-dependency-evidence
+          name: result-${{ matrix.scenario.id }}
           if-no-files-found: warn
           path: |
-            results/
-            scenarios/**/packages.lock.json
-            scenarios/**/obj/project.assets.json
-            scenarios/**/actual-graph.json
-            scenarios/**/restore.log
+            out/${{ matrix.scenario.id }}/
+            ${{ matrix.scenario.path }}/scenario.json
+            ${{ matrix.scenario.path }}/expected/graph.json
+            ${{ matrix.scenario.path }}/packages.lock.json
+            ${{ matrix.scenario.path }}/**/packages.lock.json
+            ${{ matrix.scenario.path }}/**/project.assets.json
 
+  report:
+    needs: scenario
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: result-*
+          path: results
+      - name: Publish scenario summaries
+        shell: bash
+        run: |
+          find results -name summary.md -print -exec cat {} \; >> "$GITHUB_STEP_SUMMARY"

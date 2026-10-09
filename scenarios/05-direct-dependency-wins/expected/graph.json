@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S06",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "DirectDependencyWins"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@4.1.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "DirectDependencyWins",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "DirectDependencyWins",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, 5.0.1]"
+        },
+        {
+          "from": "DirectDependencyWins",
+          "to": "Serilog@4.1.0",
+          "requested": "[4.1.0, 4.1.0]"
+        },
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@4.1.0",
+          "requested": "3.1.1"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "DirectDependencyWins"
+          ]
+        ],
+        "Serilog@4.1.0": [
+          [
+            "DirectDependencyWins"
+          ],
+          [
+            "DirectDependencyWins",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

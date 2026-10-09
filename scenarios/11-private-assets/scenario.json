@@ -1,0 +1,22 @@
+{
+  "id": "S16",
+  "name": "private-assets",
+  "phase": 2,
+  "area": "asset-flow",
+  "entry": "PrivateAssets.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

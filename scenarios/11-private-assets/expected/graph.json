@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S16",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "PrivateAssets"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "xunit.abstractions@2.0.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit.analyzers@1.16.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit.assert@2.9.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit.core@2.9.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit.extensibility.core@2.9.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit.extensibility.execution@2.9.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "xunit@2.9.2",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "PrivateAssets",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "PrivateAssets",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        },
+        {
+          "from": "PrivateAssets",
+          "to": "xunit@2.9.2",
+          "requested": "[2.9.2, 2.9.2]"
+        },
+        {
+          "from": "xunit.core@2.9.2",
+          "to": "xunit.extensibility.core@2.9.2",
+          "requested": "[2.9.2]"
+        },
+        {
+          "from": "xunit.core@2.9.2",
+          "to": "xunit.extensibility.execution@2.9.2",
+          "requested": "[2.9.2]"
+        },
+        {
+          "from": "xunit.extensibility.core@2.9.2",
+          "to": "xunit.abstractions@2.0.3",
+          "requested": "2.0.3"
+        },
+        {
+          "from": "xunit.extensibility.execution@2.9.2",
+          "to": "xunit.extensibility.core@2.9.2",
+          "requested": "[2.9.2]"
+        },
+        {
+          "from": "xunit@2.9.2",
+          "to": "xunit.analyzers@1.16.0",
+          "requested": "1.16.0"
+        },
+        {
+          "from": "xunit@2.9.2",
+          "to": "xunit.assert@2.9.2",
+          "requested": "2.9.2"
+        },
+        {
+          "from": "xunit@2.9.2",
+          "to": "xunit.core@2.9.2",
+          "requested": "[2.9.2]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "PrivateAssets"
+          ]
+        ],
+        "xunit.abstractions@2.0.3": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2",
+            "xunit.core@2.9.2",
+            "xunit.extensibility.core@2.9.2"
+          ],
+          [
+            "PrivateAssets",
+            "xunit@2.9.2",
+            "xunit.core@2.9.2",
+            "xunit.extensibility.execution@2.9.2",
+            "xunit.extensibility.core@2.9.2"
+          ]
+        ],
+        "xunit.analyzers@1.16.0": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2"
+          ]
+        ],
+        "xunit.assert@2.9.2": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2"
+          ]
+        ],
+        "xunit.core@2.9.2": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2"
+          ]
+        ],
+        "xunit.extensibility.core@2.9.2": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2",
+            "xunit.core@2.9.2"
+          ],
+          [
+            "PrivateAssets",
+            "xunit@2.9.2",
+            "xunit.core@2.9.2",
+            "xunit.extensibility.execution@2.9.2"
+          ]
+        ],
+        "xunit.extensibility.execution@2.9.2": [
+          [
+            "PrivateAssets",
+            "xunit@2.9.2",
+            "xunit.core@2.9.2"
+          ]
+        ],
+        "xunit@2.9.2": [
+          [
+            "PrivateAssets"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

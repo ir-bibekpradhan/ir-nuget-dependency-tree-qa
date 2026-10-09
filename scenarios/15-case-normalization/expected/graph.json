@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S14",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "CaseNormalization"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "CaseNormalization",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "CaseNormalization",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "CaseNormalization"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

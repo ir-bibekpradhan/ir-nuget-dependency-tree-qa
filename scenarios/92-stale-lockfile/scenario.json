@@ -1,0 +1,25 @@
+{
+  "id": "S08b",
+  "name": "stale-lockfile",
+  "phase": 1,
+  "area": "lockfiles",
+  "entry": "StaleLockfile.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1004"
+    ]
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

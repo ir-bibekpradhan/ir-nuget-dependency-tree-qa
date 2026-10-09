@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S22",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "DeepGraph"
+      ],
+      "nodes": [
+        {
+          "id": "Azure.Core@1.44.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Azure.Identity@1.13.2",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Bcl.AsyncInterfaces@6.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Identity.Client@4.67.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Abstractions@6.35.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.ClientModel@1.1.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Diagnostics.DiagnosticSource@6.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Memory.Data@6.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Memory@4.5.5",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Numerics.Vectors@4.5.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Security.Cryptography.ProtectedData@4.5.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Encodings.Web@6.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Json@6.0.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Threading.Tasks.Extensions@4.5.4",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "DeepGraph",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "Microsoft.Bcl.AsyncInterfaces@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.ClientModel@1.1.0",
+          "requested": "1.1.0"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Diagnostics.DiagnosticSource@6.0.1",
+          "requested": "6.0.1"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Memory.Data@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Numerics.Vectors@4.5.0",
+          "requested": "4.5.0"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Text.Encodings.Web@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Text.Json@6.0.10",
+          "requested": "6.0.10"
+        },
+        {
+          "from": "Azure.Core@1.44.1",
+          "to": "System.Threading.Tasks.Extensions@4.5.4",
+          "requested": "4.5.4"
+        },
+        {
+          "from": "Azure.Identity@1.13.2",
+          "to": "Azure.Core@1.44.1",
+          "requested": "1.44.1"
+        },
+        {
+          "from": "Azure.Identity@1.13.2",
+          "to": "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+          "requested": "4.67.2"
+        },
+        {
+          "from": "Azure.Identity@1.13.2",
+          "to": "Microsoft.Identity.Client@4.67.2",
+          "requested": "4.67.2"
+        },
+        {
+          "from": "Azure.Identity@1.13.2",
+          "to": "System.Memory@4.5.5",
+          "requested": "4.5.5"
+        },
+        {
+          "from": "Azure.Identity@1.13.2",
+          "to": "System.Threading.Tasks.Extensions@4.5.4",
+          "requested": "4.5.4"
+        },
+        {
+          "from": "DeepGraph",
+          "to": "Azure.Identity@1.13.2",
+          "requested": "[1.13.2, 1.13.2]"
+        },
+        {
+          "from": "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+          "to": "Microsoft.Identity.Client@4.67.2",
+          "requested": "4.67.2"
+        },
+        {
+          "from": "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+          "to": "System.Security.Cryptography.ProtectedData@4.5.0",
+          "requested": "4.5.0"
+        },
+        {
+          "from": "Microsoft.Identity.Client@4.67.2",
+          "to": "Microsoft.IdentityModel.Abstractions@6.35.0",
+          "requested": "6.35.0"
+        },
+        {
+          "from": "Microsoft.Identity.Client@4.67.2",
+          "to": "System.Diagnostics.DiagnosticSource@6.0.1",
+          "requested": "6.0.1"
+        },
+        {
+          "from": "System.ClientModel@1.1.0",
+          "to": "System.Memory.Data@6.0.0",
+          "requested": "1.0.2"
+        },
+        {
+          "from": "System.ClientModel@1.1.0",
+          "to": "System.Text.Json@6.0.10",
+          "requested": "6.0.9"
+        },
+        {
+          "from": "System.Diagnostics.DiagnosticSource@6.0.1",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Memory.Data@6.0.0",
+          "to": "System.Text.Json@6.0.10",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Text.Encodings.Web@6.0.0",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Text.Json@6.0.10",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Text.Json@6.0.10",
+          "to": "System.Text.Encodings.Web@6.0.0",
+          "requested": "6.0.0"
+        }
+      ],
+      "paths": {
+        "Azure.Core@1.44.1": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2"
+          ]
+        ],
+        "Azure.Identity@1.13.2": [
+          [
+            "DeepGraph"
+          ]
+        ],
+        "Microsoft.Bcl.AsyncInterfaces@6.0.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ]
+        ],
+        "Microsoft.Identity.Client.Extensions.Msal@4.67.2": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2"
+          ]
+        ],
+        "Microsoft.Identity.Client@4.67.2": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client.Extensions.Msal@4.67.2"
+          ]
+        ],
+        "Microsoft.IdentityModel.Abstractions@6.35.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+            "Microsoft.Identity.Client@4.67.2"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client@4.67.2"
+          ]
+        ],
+        "System.ClientModel@1.1.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ]
+        ],
+        "System.Diagnostics.DiagnosticSource@6.0.1": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+            "Microsoft.Identity.Client@4.67.2"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client@4.67.2"
+          ]
+        ],
+        "System.Memory.Data@6.0.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0"
+          ]
+        ],
+        "System.Memory@4.5.5": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2"
+          ]
+        ],
+        "System.Numerics.Vectors@4.5.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ]
+        ],
+        "System.Runtime.CompilerServices.Unsafe@6.0.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10",
+            "System.Text.Encodings.Web@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Text.Json@6.0.10",
+            "System.Text.Encodings.Web@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Diagnostics.DiagnosticSource@6.0.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10",
+            "System.Text.Encodings.Web@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Text.Encodings.Web@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Text.Json@6.0.10",
+            "System.Text.Encodings.Web@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client.Extensions.Msal@4.67.2",
+            "Microsoft.Identity.Client@4.67.2",
+            "System.Diagnostics.DiagnosticSource@6.0.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client@4.67.2",
+            "System.Diagnostics.DiagnosticSource@6.0.1"
+          ]
+        ],
+        "System.Security.Cryptography.ProtectedData@4.5.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Microsoft.Identity.Client.Extensions.Msal@4.67.2"
+          ]
+        ],
+        "System.Text.Encodings.Web@6.0.0": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Memory.Data@6.0.0",
+            "System.Text.Json@6.0.10"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Text.Json@6.0.10"
+          ]
+        ],
+        "System.Text.Json@6.0.10": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.ClientModel@1.1.0",
+            "System.Memory.Data@6.0.0"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1",
+            "System.Memory.Data@6.0.0"
+          ]
+        ],
+        "System.Threading.Tasks.Extensions@4.5.4": [
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2"
+          ],
+          [
+            "DeepGraph",
+            "Azure.Identity@1.13.2",
+            "Azure.Core@1.44.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

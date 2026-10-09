@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S17",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "VulnerablePackage"
+      ],
+      "nodes": [
+        {
+          "id": "SixLabors.ImageSharp@4.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "System.IO.Hashing@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "VulnerablePackage",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "SixLabors.ImageSharp@4.0.0",
+          "to": "System.IO.Hashing@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "VulnerablePackage",
+          "to": "SixLabors.ImageSharp@4.0.0",
+          "requested": "[4.0.0, 4.0.0]"
+        }
+      ],
+      "paths": {
+        "SixLabors.ImageSharp@4.0.0": [
+          [
+            "VulnerablePackage"
+          ]
+        ],
+        "System.IO.Hashing@8.0.0": [
+          [
+            "VulnerablePackage",
+            "SixLabors.ImageSharp@4.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

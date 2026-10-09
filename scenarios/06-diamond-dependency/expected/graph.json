@@ -1,0 +1,380 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S05",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "DiamondDependency"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Extensions.Configuration@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.FileProviders.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.FileSystemGlobbing@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Primitives@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Encodings.Web@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Json@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "DiamondDependency",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "DiamondDependency",
+          "to": "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+          "requested": "[8.0.0, 8.0.0]"
+        },
+        {
+          "from": "DiamondDependency",
+          "to": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "requested": "[8.0.0, 8.0.0]"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+          "to": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+          "to": "Microsoft.Extensions.Configuration@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "to": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "to": "Microsoft.Extensions.Configuration@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "to": "Microsoft.Extensions.FileProviders.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "to": "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "to": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "to": "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "to": "Microsoft.Extensions.Configuration@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "to": "Microsoft.Extensions.FileProviders.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration.Json@8.0.0",
+          "to": "System.Text.Json@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration@8.0.0",
+          "to": "Microsoft.Extensions.Configuration.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Configuration@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.FileProviders.Abstractions@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+          "to": "Microsoft.Extensions.FileProviders.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+          "to": "Microsoft.Extensions.FileSystemGlobbing@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "System.Text.Json@8.0.0",
+          "to": "System.Text.Encodings.Web@8.0.0",
+          "requested": "8.0.0"
+        }
+      ],
+      "paths": {
+        "Microsoft.Extensions.Configuration.Abstractions@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0": [
+          [
+            "DiamondDependency"
+          ]
+        ],
+        "Microsoft.Extensions.Configuration.FileExtensions@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Configuration.Json@8.0.0": [
+          [
+            "DiamondDependency"
+          ]
+        ],
+        "Microsoft.Extensions.Configuration@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.FileProviders.Abstractions@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.FileProviders.Physical@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.FileProviders.Physical@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.FileSystemGlobbing@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.FileProviders.Physical@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Primitives@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.FileProviders.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.FileProviders.Physical@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration.FileExtensions@8.0.0",
+            "Microsoft.Extensions.FileProviders.Physical@8.0.0",
+            "Microsoft.Extensions.FileProviders.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.Configuration@8.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+          ],
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "Microsoft.Extensions.FileProviders.Abstractions@8.0.0"
+          ]
+        ],
+        "System.Text.Encodings.Web@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0",
+            "System.Text.Json@8.0.0"
+          ]
+        ],
+        "System.Text.Json@8.0.0": [
+          [
+            "DiamondDependency",
+            "Microsoft.Extensions.Configuration.Json@8.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

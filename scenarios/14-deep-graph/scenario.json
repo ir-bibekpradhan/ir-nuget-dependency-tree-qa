@@ -1,0 +1,22 @@
+{
+  "id": "S22",
+  "name": "large-real-graph",
+  "phase": 3,
+  "area": "scale",
+  "entry": "DeepGraph.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

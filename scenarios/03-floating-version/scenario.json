@@ -1,0 +1,22 @@
+{
+  "id": "S03",
+  "name": "floating-version",
+  "phase": 1,
+  "area": "versions",
+  "entry": "FloatingVersion.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

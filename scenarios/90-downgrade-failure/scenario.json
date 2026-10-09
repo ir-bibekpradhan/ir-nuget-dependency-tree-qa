@@ -1,0 +1,25 @@
+{
+  "id": "S07a",
+  "name": "downgrade-failure",
+  "phase": 1,
+  "area": "failures",
+  "entry": "DowngradeFailure.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1605"
+    ]
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

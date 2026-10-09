@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S13",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "TransitivePinning"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@4.1.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "TransitivePinning",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@4.1.0",
+          "requested": "3.1.1"
+        },
+        {
+          "from": "TransitivePinning",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, )"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "TransitivePinning"
+          ]
+        ],
+        "Serilog@4.1.0": [
+          [
+            "TransitivePinning",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

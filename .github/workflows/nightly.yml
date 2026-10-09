@@ -1,0 +1,60 @@
+name: NuGet dependency graph nightly
+
+on:
+  schedule:
+    - cron: "17 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.scenarios.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: scenarios
+        shell: bash
+        run: echo "matrix=$(python3 tools/discover.py --mode nightly)" >> "$GITHUB_OUTPUT"
+
+  scenario:
+    needs: discover
+    name: ${{ matrix.scenario.id }} - ${{ matrix.scenario.name }}
+    runs-on: ${{ matrix.scenario.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+    env:
+      IR_TOKEN: ${{ secrets.IR_TOKEN }}
+      NUGET_PACKAGES: ${{ runner.temp }}/nuget-packages-${{ matrix.scenario.id }}
+
+    steps:
+      - name: Set up InvisiRisk PSE
+        if: env.IR_TOKEN != ''
+        uses: invisirisk/pse-action@latest
+        with:
+          api_url: https://app.stage.invisirisk.com
+          app_token: ${{ secrets.IR_TOKEN }}
+          collect_dependencies: true
+          workdir: ${{ matrix.scenario.path }}
+          job_identifier: nuget-nightly-${{ matrix.scenario.id }}
+          job_label: Nightly ${{ matrix.scenario.id }} - ${{ matrix.scenario.name }}
+
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - run: python tools/run_scenario.py "${{ matrix.scenario.path }}"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-${{ matrix.scenario.id }}
+          path: |
+            out/${{ matrix.scenario.id }}/
+            ${{ matrix.scenario.path }}/packages.lock.json
+            ${{ matrix.scenario.path }}/**/project.assets.json

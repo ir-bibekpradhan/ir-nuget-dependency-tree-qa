@@ -1,0 +1,25 @@
+{
+  "id": "S07c",
+  "name": "conflicting-constraints",
+  "phase": 1,
+  "area": "failures",
+  "entry": "ConflictingConstraints.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1107"
+    ]
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

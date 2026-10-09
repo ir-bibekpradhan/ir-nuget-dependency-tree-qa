@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S15",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "SourceMapping"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "SourceMapping",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "SourceMapping",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "SourceMapping"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

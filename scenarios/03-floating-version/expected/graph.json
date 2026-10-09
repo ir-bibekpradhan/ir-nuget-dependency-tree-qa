@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S03",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "FloatingVersion"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.4",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "FloatingVersion",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "FloatingVersion",
+          "to": "Newtonsoft.Json@13.0.4",
+          "requested": "[13.*, )"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.4": [
+          [
+            "FloatingVersion"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

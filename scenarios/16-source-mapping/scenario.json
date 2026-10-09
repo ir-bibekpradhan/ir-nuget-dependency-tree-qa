@@ -1,0 +1,26 @@
+{
+  "id": "S15",
+  "name": "source-mapping",
+  "phase": 2,
+  "area": "feeds",
+  "entry": "SourceMapping.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true,
+    "arguments": [
+      "--configfile",
+      "NuGet.Config"
+    ]
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

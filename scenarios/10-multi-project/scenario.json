@@ -1,0 +1,24 @@
+{
+  "id": "S10",
+  "name": "multi-project-solution",
+  "phase": 1,
+  "area": "projects",
+  "entry": "App/App.csproj",
+  "assets": "App/obj/project.assets.json",
+  "lock": "App/packages.lock.json",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

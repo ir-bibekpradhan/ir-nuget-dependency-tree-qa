@@ -1,0 +1,22 @@
+{
+  "id": "S12",
+  "name": "central-package-management",
+  "phase": 2,
+  "area": "central-management",
+  "entry": "CentralPackages.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

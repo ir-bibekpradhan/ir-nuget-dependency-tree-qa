@@ -1,0 +1,22 @@
+{
+  "id": "S09",
+  "name": "multi-targeting",
+  "phase": 1,
+  "area": "frameworks",
+  "entry": "MultiTarget.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

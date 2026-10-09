@@ -1,0 +1,25 @@
+{
+  "id": "X01",
+  "name": "duplicate-reference-warning",
+  "phase": 2,
+  "area": "warnings",
+  "entry": "DuplicateReference.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true,
+    "expectedCodes": [
+      "NU1504"
+    ]
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

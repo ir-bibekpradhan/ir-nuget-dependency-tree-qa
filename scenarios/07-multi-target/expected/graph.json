@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S09",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "MultiTarget"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "MultiTarget",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "MultiTarget",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "MultiTarget"
+          ]
+        ]
+      }
+    },
+    {
+      "framework": "netstandard2.0",
+      "rid": null,
+      "roots": [
+        "MultiTarget"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.NETCore.Platforms@1.1.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "NETStandard.Library@2.0.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Newtonsoft.Json@12.0.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "MultiTarget",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "NETStandard.Library@2.0.3",
+          "to": "Microsoft.NETCore.Platforms@1.1.0",
+          "requested": "1.1.0"
+        }
+      ],
+      "paths": {}
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

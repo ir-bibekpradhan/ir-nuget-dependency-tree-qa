@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S12",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "CentralPackages"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@3.1.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "CentralPackages",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "CentralPackages",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, )"
+        },
+        {
+          "from": "CentralPackages",
+          "to": "Serilog@3.1.1",
+          "requested": "[3.1.1, )"
+        },
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@3.1.1",
+          "requested": "3.1.1"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "CentralPackages"
+          ]
+        ],
+        "Serilog@3.1.1": [
+          [
+            "CentralPackages"
+          ],
+          [
+            "CentralPackages",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

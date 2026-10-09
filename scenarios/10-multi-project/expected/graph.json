@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S10",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "App"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Serilog@3.1.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "App",
+          "type": "project"
+        },
+        {
+          "id": "Library",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "App",
+          "to": "Library",
+          "requested": null
+        },
+        {
+          "from": "App",
+          "to": "Serilog@3.1.1",
+          "requested": "[3.1.1, 3.1.1]"
+        },
+        {
+          "from": "Library",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3]"
+        }
+      ],
+      "paths": {
+        "Library": [
+          [
+            "App"
+          ]
+        ],
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "App",
+            "Library"
+          ]
+        ],
+        "Serilog@3.1.1": [
+          [
+            "App"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

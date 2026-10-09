@@ -1,0 +1,22 @@
+{
+  "id": "S14",
+  "name": "casing-normalization",
+  "phase": 2,
+  "area": "identity",
+  "entry": "CaseNormalization.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "frameworks": [],
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}
+

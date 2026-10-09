@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S02",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "MinimumVersion"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@12.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "MinimumVersion",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "MinimumVersion",
+          "to": "Newtonsoft.Json@12.0.3",
+          "requested": "[12.0.3, )"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@12.0.3": [
+          [
+            "MinimumVersion"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}
+
+

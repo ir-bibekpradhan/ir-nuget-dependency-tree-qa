@@ -1,7 +1,0 @@
-{
-  "description": "Incompatible EF Core provider ranges must not produce a successful graph",
-  "project": "ConflictingConstraints.csproj",
-  "mode": "failure",
-  "restoreArgs": ["--use-lock-file", "--force-evaluate"],
-  "expectedCodes": ["NU1107"]
-}
