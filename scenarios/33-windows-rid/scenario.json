@@ -9,7 +9,6 @@
   },
   "deterministic": false,
   "nightly": true,
-  "capture": true,
   "checks": [
     "nodes",
     "edges",

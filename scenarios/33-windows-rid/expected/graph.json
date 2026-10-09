@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S11b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "WindowsRid"
+      ],
+      "nodes": [
+        {
+          "id": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "SQLitePCLRaw.core@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "SQLitePCLRaw.lib.e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Memory@4.5.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "WindowsRid",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.lib.e_sqlite3@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "SQLitePCLRaw.core@2.1.10",
+          "to": "System.Memory@4.5.3",
+          "requested": "4.5.3"
+        },
+        {
+          "from": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.core@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "WindowsRid",
+          "to": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "requested": "[2.1.10, 2.1.10]"
+        }
+      ],
+      "paths": {
+        "SQLitePCLRaw.bundle_e_sqlite3@2.1.10": [
+          [
+            "WindowsRid"
+          ]
+        ],
+        "SQLitePCLRaw.core@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+            "SQLitePCLRaw.provider.e_sqlite3@2.1.10"
+          ]
+        ],
+        "SQLitePCLRaw.lib.e_sqlite3@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10"
+          ]
+        ],
+        "SQLitePCLRaw.provider.e_sqlite3@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10"
+          ]
+        ],
+        "System.Memory@4.5.3": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+            "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+            "SQLitePCLRaw.core@2.1.10"
+          ]
+        ]
+      }
+    },
+    {
+      "framework": "net8.0",
+      "rid": "win-x64",
+      "roots": [
+        "WindowsRid"
+      ],
+      "nodes": [
+        {
+          "id": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "SQLitePCLRaw.core@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "SQLitePCLRaw.lib.e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Memory@4.5.3",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "WindowsRid",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.lib.e_sqlite3@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "SQLitePCLRaw.core@2.1.10",
+          "to": "System.Memory@4.5.3",
+          "requested": "4.5.3"
+        },
+        {
+          "from": "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+          "to": "SQLitePCLRaw.core@2.1.10",
+          "requested": "2.1.10"
+        },
+        {
+          "from": "WindowsRid",
+          "to": "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+          "requested": "[2.1.10, 2.1.10]"
+        }
+      ],
+      "paths": {
+        "SQLitePCLRaw.bundle_e_sqlite3@2.1.10": [
+          [
+            "WindowsRid"
+          ]
+        ],
+        "SQLitePCLRaw.core@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+            "SQLitePCLRaw.provider.e_sqlite3@2.1.10"
+          ]
+        ],
+        "SQLitePCLRaw.lib.e_sqlite3@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10"
+          ]
+        ],
+        "SQLitePCLRaw.provider.e_sqlite3@2.1.10": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10"
+          ]
+        ],
+        "System.Memory@4.5.3": [
+          [
+            "WindowsRid",
+            "SQLitePCLRaw.bundle_e_sqlite3@2.1.10",
+            "SQLitePCLRaw.provider.e_sqlite3@2.1.10",
+            "SQLitePCLRaw.core@2.1.10"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -38,10 +38,15 @@ def load_json(path):
 
 def _target_lock(lock, target_name):
     dependencies = lock.get("dependencies", {})
-    framework, _ = split_target(target_name)
-    merged = dict(dependencies.get(framework, {}))
-    if target_name != framework:
-        merged.update(dependencies.get(target_name, {}))
+    framework, rid = split_target(target_name)
+    merged = {}
+    for name, entries in dependencies.items():
+        if split_target(name) == (framework, None):
+            merged.update(entries)
+    if rid:
+        for name, entries in dependencies.items():
+            if split_target(name) == (framework, rid):
+                merged.update(entries)
     return merged
 
 

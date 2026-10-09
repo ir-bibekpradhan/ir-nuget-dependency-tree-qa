@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S10b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "Core"
+      ],
+      "nodes": [
+        {
+          "id": "Dapper@2.1.35",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Core",
+          "type": "project"
+        },
+        {
+          "id": "Data",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Core",
+          "to": "Data",
+          "requested": null
+        },
+        {
+          "from": "Core",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        },
+        {
+          "from": "Data",
+          "to": "Dapper@2.1.35",
+          "requested": "[2.1.35]"
+        }
+      ],
+      "paths": {
+        "Dapper@2.1.35": [
+          [
+            "Core",
+            "Data"
+          ]
+        ],
+        "Data": [
+          [
+            "Core"
+          ]
+        ],
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "Core"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -1,58 +1,48 @@
 # InvisiRisk NuGet dependency-tree QA
 
-Runnable regression suite for comparing InvisiRisk dependency trees with NuGet's resolved graph. The fixtures use real packages from NuGet.org and cover successful resolution, warnings, expected failures, framework-specific graphs, project references, Central Package Management, runtime packages, and vulnerable packages.
+49 isolated fixtures cover the 24 scenario families in the approved NuGet QA plan. Ordinary resolution fixtures use original NuGet.org packages. Only the local-feed and depth/fan-out fixtures use deliberately synthetic packages, as requested in the plan.
 
-## Scenarios
+See [COVERAGE.md](COVERAGE.md) for scenario IDs, package choices and expected IR behavior. Each folder has scenario.json, project files, a README and reviewed expected graphs. Deterministic fixtures have fixed inputs; floating and advisory checks use current feed metadata.
 
-| Scenario | Coverage |
-|---|---|
-| `01-exact-pinned` | Exact direct version |
-| `02-minimum-version` | Non-pinned minimum version |
-| `03-floating-version` | Floating major version |
-| `04-shared-dependency` | Direct and transitive paths to one shared node |
-| `05-direct-dependency-wins` | Direct higher version overrides a transitive minimum |
-| `06-diamond-dependency` | Two branches converge on shared dependencies |
-| `07-multi-target` | Different versions for different target frameworks |
-| `08-central-package-management` | Versions inherited from `Directory.Packages.props` |
-| `09-transitive-pinning` | Centrally pinned transitive dependency |
-| `10-multi-project` | Project reference plus package dependencies |
-| `11-private-assets` | Test/build dependency with `PrivateAssets=all` |
-| `12-vulnerable-package` | Real vulnerable ImageSharp version and its child |
-| `13-rid-specific` | Runtime-specific SQLite packages |
-| `14-deep-graph` | Larger, deeper Azure dependency graph |
-| `15-case-normalization` | Case-insensitive NuGet package identity |
-| `16-source-mapping` | Explicit NuGet source mapping |
-| `17-duplicate-reference` | Successful restore with duplicate-reference warning |
-| `90-downgrade-failure` | Expected `NU1605` downgrade failure |
-| `91-conflicting-constraints` | Expected incompatible-version restore failure |
-| `92-stale-lockfile` | Expected locked-restore mismatch failure |
+## Run in GitHub Actions
 
-## Ground truth
+Open **Actions → NuGet dependency graph QA → Run workflow**.
 
-Every successful scenario has a committed `packages.lock.json` and restores in locked mode. The verifier checks `obj/project.assets.json` for resolved nodes, versions, root/package edges, shared incoming paths, framework/RID separation, minimum graph size, and graph depth. CI also records package listings, restore logs, and normalized actual graphs as artifacts.
+- Choose `all` to run every fixture, `deterministic` for stable regression checks, or `nightly` for floating, vulnerability and scale cases.
+- Set `scenario` to one ID, such as `S04`, or leave `all`.
+- Set `phase` to `1`, `2`, `3`, or `all`.
+- Leave `use_pse` checked to submit scans to IR. Uncheck it for NuGet reference verification only. Push/PR checks verify references without submitting scans.
 
-Run the complete suite with .NET 8 and Python 3:
+The normal workflow is [.github/workflows/verify.yml](.github/workflows/verify.yml). Nightly cases also have a scheduled workflow. Native Windows reference restore has a separate manual workflow; the IR matrix restores both Linux and Windows RID graphs on Linux.
 
-```bash
-python tools/run_suite.py
-```
+Scheduled nightly checks verify NuGet references. Submit nightly IR scans by manually running that workflow with use_pse enabled.
 
-## InvisiRisk
+PSE uses the repository's `IR_TOKEN` secret and https://app.stage.invisirisk.com. No credential is committed. With a configured secret, each matrix job submits a separate scenario scan. PSE setup/finalization errors remain visible; an unavailable IR service can fail a job even when NuGet verification passes.
 
-The GitHub Actions workflow conditionally starts InvisiRisk PSE when the repository secret `IR_TOKEN` is available. All NuGet restores and the Docker baseline then run through PSE. No token or certificate is stored in the repository.
+## Ground truth and pass criteria
 
-Configure the secret securely with GitHub CLI:
+The SDK is pinned to **8.0.419**. A root NuGet.Config clears inherited sources, and package/HTTP caches are isolated per scenario. Fixed-version fixtures restore against committed locks where applicable. Unlocked, floating, synthetic and warning fixtures intentionally generate fresh locks.
+
+For every successful restore, the verifier compares complete package/project nodes, root edges, dependency edges, requested constraints, direct flags and all parent paths with expected graphs, separated by framework/RID/project context. Duplicate nodes/edges/paths and dangling edges fail verification. Shared dependencies must retain every incoming path.
+
+Artifacts include restore logs, assets, locks, package listings, normalized graphs, diff.json, summary.md, hashes and timing/memory metrics. Nightly vulnerability checks record advisory evidence. S24 performs three restores, requires identical graph hashes, then changes Serilog's version and checks a second reviewed graph.
+
+For failed restores, PASS means the intended failure and NuGet error code occurred. For S20 evidence-corruption fixtures, the valid baseline is checked first and then altered before PSE collection. IR should flag the missing/malformed/stale evidence or explicitly report reduced confidence. Read each scenario README for its expected result.
+
+NuGet-reference PASS is independent of the manual IR verdict. Compare IR's displayed/exported graph with the artifact's nuget.json and expected graph. Optional IR_GRAPH_PATH accepts an already exported normalized graph; no IR API endpoint is assumed.
+
+## Local use
+
+With .NET SDK 8.0.419 and Python 3:
 
 ```bash
-gh secret set IR_TOKEN --repo ir-bibekpradhan/ir-nuget-dependency-tree-qa
+python tools/validate_scenarios.py
+python tools/run_scenario.py scenarios/04-shared-dependency
+python -m unittest discover -s tools -p "test_*.py"
 ```
 
-The primary UI/API assertions are:
+The capture workflow generates candidate contracts for maintainer review. It does not automatically replace expected graphs or approve scanner behavior.
 
-- Exact resolved package ID and version
-- Correct direct/transitive classification
-- Correct parent-child edges and full paths
-- One component identity for shared nodes, with every incoming path retained
-- Separate graphs for each framework/RID
-- No successful dependency tree for failed restores
-- Vulnerabilities attached only to the affected package version
+## Release gates
+
+Run Phase 1 five consecutive times with identical stable graphs. Then validate Phase 2 against IR, followed by Phase 3 scale/repetition checks. Record IR's verdict separately, including evidence confidence, advisory version association, UI/API/SBOM agreement and scan identity. The repository supplies reproducible inputs and reference evidence; those IR product verdicts are assessed when you run it.

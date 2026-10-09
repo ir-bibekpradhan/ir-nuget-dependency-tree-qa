@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0": {
+      "Microsoft.CodeAnalysis.NetAnalyzers": {
+        "type": "Direct",
+        "requested": "[8.0.0, 8.0.0]",
+        "resolved": "8.0.0",
+        "contentHash": "DxiTgkCl3CGq1rYmBX2wjY7XGbxiBdL4J+/AJIAFLKy5z70NxhnVRnPghnicXZ8oF6JKVXlW3xwznRbI3ioEKg=="
+      },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.0.3, 13.0.3]",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "System.Text.Json": {
+        "type": "Direct",
+        "requested": "[8.0.5, 8.0.5]",
+        "resolved": "8.0.5",
+        "contentHash": "0f1B50Ss7rqxXiaBJyzUu9bWFOO2/zSlifZ/UNMdiIpDYe4cY4LQQicP4nirK1OS31I43rn062UIJ1Q9bpmHpg=="
+      }
+    }
+  }
+}

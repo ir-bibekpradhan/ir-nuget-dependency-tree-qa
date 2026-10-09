@@ -11,7 +11,8 @@
       "entry": "Library/Library.csproj",
       "assets": "Library/obj/project.assets.json",
       "lock": "Library/packages.lock.json",
-      "expected": "expected/Library.json"
+      "expected": "expected/Library.json",
+      "assetChecks": [{"package": "System.Text.Json", "absent": ["runtime"]}]
     }
   ],
   "restore": {
@@ -20,7 +21,6 @@
   },
   "deterministic": true,
   "nightly": false,
-  "capture": true,
   "checks": [
     "nodes",
     "edges",

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net8.0": {
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.0.3, 13.0.3]",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "Dapper": {
+        "type": "Transitive",
+        "resolved": "2.1.35",
+        "contentHash": "YKRwjVfrG7GYOovlGyQoMvr1/IJdn+7QzNXJxyMh0YfFF5yvDmTYaJOVYWsckreNjGsGSEtrMTpnzxTUq/tZQw=="
+      },
+      "data": {
+        "type": "Project",
+        "dependencies": {
+          "Dapper": "[2.1.35, 2.1.35]"
+        }
+      }
+    }
+  }
+}

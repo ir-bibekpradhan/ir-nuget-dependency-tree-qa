@@ -4,6 +4,7 @@
 .vs/
 results/
 out/
+drafts/
 .nuget/
 scenarios/03-floating-version/packages.lock.json
 **/feed/*.nupkg

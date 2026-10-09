@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S06b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "DirectWinsLogging"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Extensions.DependencyInjection@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Logging@8.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Extensions.Options@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Primitives@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "DirectWinsLogging",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "DirectWinsLogging",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2",
+          "requested": "[8.0.2, 8.0.2]"
+        },
+        {
+          "from": "DirectWinsLogging",
+          "to": "Microsoft.Extensions.Logging@8.0.0",
+          "requested": "[8.0.0, 8.0.0]"
+        },
+        {
+          "from": "Microsoft.Extensions.DependencyInjection@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging@8.0.0",
+          "to": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging@8.0.0",
+          "to": "Microsoft.Extensions.Options@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Options@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.Extensions.Options@8.0.0",
+          "to": "Microsoft.Extensions.Primitives@8.0.0",
+          "requested": "8.0.0"
+        }
+      ],
+      "paths": {
+        "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2": [
+          [
+            "DirectWinsLogging"
+          ],
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0",
+            "Microsoft.Extensions.DependencyInjection@8.0.0"
+          ],
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0",
+            "Microsoft.Extensions.Options@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.DependencyInjection@8.0.0": [
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Logging.Abstractions@8.0.0": [
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Logging@8.0.0": [
+          [
+            "DirectWinsLogging"
+          ]
+        ],
+        "Microsoft.Extensions.Options@8.0.0": [
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Primitives@8.0.0": [
+          [
+            "DirectWinsLogging",
+            "Microsoft.Extensions.Logging@8.0.0",
+            "Microsoft.Extensions.Options@8.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

@@ -4,6 +4,22 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Scenario group
+        type: choice
+        options: [all, deterministic, nightly]
+        default: all
+      scenario:
+        description: One scenario ID (e.g. S04), or all
+        default: all
+      phase:
+        description: Phase 1, 2, 3, or all
+        default: all
+      use_pse:
+        description: Submit these scans to InvisiRisk PSE
+        type: boolean
+        default: true
 
 permissions:
   actions: read
@@ -20,7 +36,11 @@ jobs:
       - id: scenarios
         name: Discover deterministic scenarios
         shell: bash
-        run: echo "matrix=$(python3 tools/discover.py --mode deterministic)" >> "$GITHUB_OUTPUT"
+        env:
+          QA_MODE: ${{ inputs.mode || 'deterministic' }}
+          QA_SCENARIO: ${{ inputs.scenario || 'all' }}
+          QA_PHASE: ${{ inputs.phase || 'all' }}
+        run: echo "matrix=$(python3 tools/discover.py --mode "$QA_MODE" --scenario "$QA_SCENARIO" --phase "$QA_PHASE")" >> "$GITHUB_OUTPUT"
 
   scenario:
     needs: discover
@@ -38,7 +58,7 @@ jobs:
 
     steps:
       - name: Set up InvisiRisk PSE
-        if: env.IR_TOKEN != ''
+        if: env.IR_TOKEN != '' && github.event_name == 'workflow_dispatch' && inputs.use_pse
         uses: invisirisk/pse-action@latest
         with:
           api_url: https://app.stage.invisirisk.com

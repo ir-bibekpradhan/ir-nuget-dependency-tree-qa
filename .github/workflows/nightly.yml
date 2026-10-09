@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "17 1 * * *"
   workflow_dispatch:
+    inputs:
+      use_pse:
+        description: Submit nightly cases to InvisiRisk PSE
+        type: boolean
+        default: true
 
 permissions:
   actions: read
@@ -37,7 +42,7 @@ jobs:
 
     steps:
       - name: Set up InvisiRisk PSE
-        if: env.IR_TOKEN != ''
+        if: env.IR_TOKEN != '' && github.event_name == 'workflow_dispatch' && inputs.use_pse
         uses: invisirisk/pse-action@latest
         with:
           api_url: https://app.stage.invisirisk.com

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S18",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "VulnerableTransitive"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.AspNetCore.JsonPatch@3.1.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.CSharp@4.7.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Newtonsoft.Json.Bson@1.0.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Newtonsoft.Json@12.0.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "VulnerableTransitive",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Microsoft.AspNetCore.JsonPatch@3.1.0",
+          "to": "Microsoft.CSharp@4.7.0",
+          "requested": "4.7.0"
+        },
+        {
+          "from": "Microsoft.AspNetCore.JsonPatch@3.1.0",
+          "to": "Newtonsoft.Json@12.0.2",
+          "requested": "12.0.2"
+        },
+        {
+          "from": "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+          "to": "Microsoft.AspNetCore.JsonPatch@3.1.0",
+          "requested": "3.1.0"
+        },
+        {
+          "from": "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+          "to": "Newtonsoft.Json.Bson@1.0.2",
+          "requested": "1.0.2"
+        },
+        {
+          "from": "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+          "to": "Newtonsoft.Json@12.0.2",
+          "requested": "12.0.2"
+        },
+        {
+          "from": "Newtonsoft.Json.Bson@1.0.2",
+          "to": "Newtonsoft.Json@12.0.2",
+          "requested": "12.0.1"
+        },
+        {
+          "from": "VulnerableTransitive",
+          "to": "Microsoft.AspNetCore.JsonPatch@3.1.0",
+          "requested": "[3.1.0, 3.1.0]"
+        },
+        {
+          "from": "VulnerableTransitive",
+          "to": "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+          "requested": "[3.1.0, 3.1.0]"
+        }
+      ],
+      "paths": {
+        "Microsoft.AspNetCore.JsonPatch@3.1.0": [
+          [
+            "VulnerableTransitive"
+          ],
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0"
+          ]
+        ],
+        "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0": [
+          [
+            "VulnerableTransitive"
+          ]
+        ],
+        "Microsoft.CSharp@4.7.0": [
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.JsonPatch@3.1.0"
+          ],
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+            "Microsoft.AspNetCore.JsonPatch@3.1.0"
+          ]
+        ],
+        "Newtonsoft.Json.Bson@1.0.2": [
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0"
+          ]
+        ],
+        "Newtonsoft.Json@12.0.2": [
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.JsonPatch@3.1.0"
+          ],
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0"
+          ],
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+            "Microsoft.AspNetCore.JsonPatch@3.1.0"
+          ],
+          [
+            "VulnerableTransitive",
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson@3.1.0",
+            "Newtonsoft.Json.Bson@1.0.2"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

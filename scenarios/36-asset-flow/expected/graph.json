@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S16b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "App"
+      ],
+      "nodes": [
+        {
+          "id": "System.Text.Json@8.0.5",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "App",
+          "type": "project"
+        },
+        {
+          "id": "Library",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "App",
+          "to": "Library",
+          "requested": null
+        },
+        {
+          "from": "Library",
+          "to": "System.Text.Json@8.0.5",
+          "requested": "[8.0.5]"
+        }
+      ],
+      "paths": {
+        "Library": [
+          [
+            "App"
+          ]
+        ],
+        "System.Text.Json@8.0.5": [
+          [
+            "App",
+            "Library"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

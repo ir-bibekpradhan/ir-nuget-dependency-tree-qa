@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S19c",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "App"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@12.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "App",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "App",
+          "to": "Newtonsoft.Json@12.0.3",
+          "requested": "[12.0.3, 12.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@12.0.3": [
+          [
+            "App"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

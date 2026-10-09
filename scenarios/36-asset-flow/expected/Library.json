@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S16b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "Library"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.CodeAnalysis.NetAnalyzers@8.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "System.Text.Json@8.0.5",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Library",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Library",
+          "to": "Microsoft.CodeAnalysis.NetAnalyzers@8.0.0",
+          "requested": "[8.0.0, 8.0.0]"
+        },
+        {
+          "from": "Library",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        },
+        {
+          "from": "Library",
+          "to": "System.Text.Json@8.0.5",
+          "requested": "[8.0.5, 8.0.5]"
+        }
+      ],
+      "paths": {
+        "Microsoft.CodeAnalysis.NetAnalyzers@8.0.0": [
+          [
+            "Library"
+          ]
+        ],
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "Library"
+          ]
+        ],
+        "System.Text.Json@8.0.5": [
+          [
+            "Library"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

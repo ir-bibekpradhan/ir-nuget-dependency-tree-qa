@@ -9,6 +9,7 @@
   },
   "deterministic": false,
   "nightly": true,
+  "absentAdvisories": ["GHSA-5crp-9r3c-p9vr"],
   "checks": [
     "nodes",
     "edges",

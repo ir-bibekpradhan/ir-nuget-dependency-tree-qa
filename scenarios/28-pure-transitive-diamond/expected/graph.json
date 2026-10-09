@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S05b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "PureTransitive"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog.Sinks.File@5.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@3.1.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "PureTransitive",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "PureTransitive",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, 5.0.1]"
+        },
+        {
+          "from": "PureTransitive",
+          "to": "Serilog.Sinks.File@5.0.0",
+          "requested": "[5.0.0, 5.0.0]"
+        },
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@3.1.1",
+          "requested": "3.1.1"
+        },
+        {
+          "from": "Serilog.Sinks.File@5.0.0",
+          "to": "Serilog@3.1.1",
+          "requested": "2.10.0"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "PureTransitive"
+          ]
+        ],
+        "Serilog.Sinks.File@5.0.0": [
+          [
+            "PureTransitive"
+          ]
+        ],
+        "Serilog@3.1.1": [
+          [
+            "PureTransitive",
+            "Serilog.Sinks.Console@5.0.1"
+          ],
+          [
+            "PureTransitive",
+            "Serilog.Sinks.File@5.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

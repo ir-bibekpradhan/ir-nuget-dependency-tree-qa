@@ -25,6 +25,8 @@ lock = scenario_dir / metadata.get("lock", "packages.lock.json")
 expected = scenario_dir / "expected" / "graph.json"
 output = ROOT / "out" / scenario_id
 output.mkdir(parents=True, exist_ok=True)
+os.environ.setdefault('NUGET_PACKAGES', str(ROOT / '.nuget' / ('packages-' + scenario_id)))
+os.environ.setdefault('NUGET_HTTP_CACHE_PATH', str(ROOT / '.nuget' / ('http-' + scenario_id)))
 (output / "summary.md").write_text(f"# {scenario_id} result\n\n- Status: FAIL (verification did not finish)\n- IR comparison: pending export\n", encoding="utf-8")
 
 
@@ -90,7 +92,7 @@ list_code, list_output = execute([
 if list_code != 0:
     raise SystemExit(f"{scenario_id}: dotnet list package failed")
 
-if metadata.get("vulnerabilityPackages"):
+if metadata.get("vulnerabilityPackages") or metadata.get('absentAdvisories'):
     vuln_code, vuln_output = execute([
         "dotnet", "list", str(entry), "package", "--vulnerable", "--include-transitive", "--format", "json"
     ])
@@ -102,9 +104,11 @@ if metadata.get("vulnerabilityPackages"):
                 for framework in project.get('frameworks', [])
                 for field in ('topLevelPackages', 'transitivePackages')
                 for package in framework.get(field, []) if package.get('vulnerabilities')}
-    missing = [item for item in metadata["vulnerabilityPackages"] if item.lower() not in affected]
+    missing = [item for item in metadata.get("vulnerabilityPackages", []) if item.lower() not in affected]
     if missing:
         raise SystemExit(f"{scenario_id}: expected vulnerable packages missing: {missing}")
+    if any(advisory.lower() in vuln_output.lower() for advisory in metadata.get('absentAdvisories', [])):
+        raise SystemExit('An advisory for the old version was attached to the fixed-version context')
 
 ir_argument = []
 shutil.copy2(assets, output / "project.assets.json")
@@ -192,6 +196,18 @@ for context in metadata.get('additionalGraphs', []):
     context_verify_code, _ = execute(command)
     if context_verify_code:
         raise SystemExit(f"Additional project {context['name']} graph differs")
+    for check in context.get('assetChecks', []):
+        evidence = load_json(scenario_dir / context['assets'])
+        found = [value for target in evidence['targets'].values() for key, value in target.items()
+                 if key.split('/')[0].lower() == check['package'].lower()]
+        if not found or any(value.get(field) for value in found for field in check.get('absent', [])):
+            raise SystemExit('Excluded asset appeared for ' + check['package'])
+    if context.get('absentAdvisories'):
+        code, vulnerability_output = execute(['dotnet', 'list', str(scenario_dir / context['entry']), 'package',
+                                             '--vulnerable', '--include-transitive', '--format', 'json'])
+        (context_output / 'vulnerabilities.json').write_text(vulnerability_output, encoding='utf-8')
+        if code or any(advisory.lower() in vulnerability_output.lower() for advisory in context['absentAdvisories']):
+            raise SystemExit('Fixed project retained the affected-version advisory')
 if metadata.get('afterRestore'):
     import xml.etree.ElementTree as ET
     change = metadata['afterRestore']
@@ -212,6 +228,15 @@ if metadata.get('afterRestore'):
                               '--summary', str(after_output / 'summary.md')])
     if after_verify:
         raise SystemExit('Changed version graph differs from reviewed expectation')
+if metadata.get('localFeed'):
+    sources = {}
+    for package in load_json(scenario_dir / 'feed.json'):
+        path = Path(os.environ['NUGET_PACKAGES']) / package.lower() / '1.0.0' / '.nupkg.metadata'
+        source = load_json(path)['source']
+        sources[package] = source
+        if Path(source).resolve() != (scenario_dir / 'feed').resolve():
+            raise SystemExit('Wrong mapped source used for ' + package)
+    (output / 'sources.json').write_text(json.dumps(sources, indent=2) + '\n', encoding='utf-8')
 if metadata.get('mutateEvidence'):
     mutation = metadata['mutateEvidence']
     if mutation == 'missingAssets':

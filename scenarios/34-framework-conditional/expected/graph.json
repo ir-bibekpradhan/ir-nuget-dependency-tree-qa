@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S09b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "FrameworkConditional"
+      ],
+      "nodes": [
+        {
+          "id": "FrameworkConditional",
+          "type": "project"
+        }
+      ],
+      "edges": [],
+      "paths": {}
+    },
+    {
+      "framework": "netstandard2.0",
+      "rid": null,
+      "roots": [
+        "FrameworkConditional"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.Bcl.AsyncInterfaces@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.NETCore.Platforms@1.1.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "NETStandard.Library@2.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "System.Buffers@4.5.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Memory@4.5.5",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Numerics.Vectors@4.4.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Encodings.Web@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Text.Json@8.0.5",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "System.Threading.Tasks.Extensions@4.5.4",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "FrameworkConditional",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "FrameworkConditional",
+          "to": "NETStandard.Library@2.0.3",
+          "requested": "[2.0.3, )"
+        },
+        {
+          "from": "FrameworkConditional",
+          "to": "System.Text.Json@8.0.5",
+          "requested": "[8.0.5, 8.0.5]"
+        },
+        {
+          "from": "Microsoft.Bcl.AsyncInterfaces@8.0.0",
+          "to": "System.Threading.Tasks.Extensions@4.5.4",
+          "requested": "4.5.4"
+        },
+        {
+          "from": "NETStandard.Library@2.0.3",
+          "to": "Microsoft.NETCore.Platforms@1.1.0",
+          "requested": "1.1.0"
+        },
+        {
+          "from": "System.Memory@4.5.5",
+          "to": "System.Buffers@4.5.1",
+          "requested": "4.5.1"
+        },
+        {
+          "from": "System.Memory@4.5.5",
+          "to": "System.Numerics.Vectors@4.4.0",
+          "requested": "4.4.0"
+        },
+        {
+          "from": "System.Memory@4.5.5",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "4.5.3"
+        },
+        {
+          "from": "System.Text.Encodings.Web@8.0.0",
+          "to": "System.Buffers@4.5.1",
+          "requested": "4.5.1"
+        },
+        {
+          "from": "System.Text.Encodings.Web@8.0.0",
+          "to": "System.Memory@4.5.5",
+          "requested": "4.5.5"
+        },
+        {
+          "from": "System.Text.Encodings.Web@8.0.0",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "Microsoft.Bcl.AsyncInterfaces@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "System.Buffers@4.5.1",
+          "requested": "4.5.1"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "System.Memory@4.5.5",
+          "requested": "4.5.5"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "6.0.0"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "System.Text.Encodings.Web@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "System.Text.Json@8.0.5",
+          "to": "System.Threading.Tasks.Extensions@4.5.4",
+          "requested": "4.5.4"
+        },
+        {
+          "from": "System.Threading.Tasks.Extensions@4.5.4",
+          "to": "System.Runtime.CompilerServices.Unsafe@6.0.0",
+          "requested": "4.5.3"
+        }
+      ],
+      "paths": {
+        "Microsoft.Bcl.AsyncInterfaces@8.0.0": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ]
+        ],
+        "Microsoft.NETCore.Platforms@1.1.0": [
+          [
+            "FrameworkConditional",
+            "NETStandard.Library@2.0.3"
+          ]
+        ],
+        "NETStandard.Library@2.0.3": [
+          [
+            "FrameworkConditional"
+          ]
+        ],
+        "System.Buffers@4.5.1": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Memory@4.5.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0",
+            "System.Memory@4.5.5"
+          ]
+        ],
+        "System.Memory@4.5.5": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0"
+          ]
+        ],
+        "System.Numerics.Vectors@4.4.0": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Memory@4.5.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0",
+            "System.Memory@4.5.5"
+          ]
+        ],
+        "System.Runtime.CompilerServices.Unsafe@6.0.0": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "Microsoft.Bcl.AsyncInterfaces@8.0.0",
+            "System.Threading.Tasks.Extensions@4.5.4"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Memory@4.5.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Text.Encodings.Web@8.0.0",
+            "System.Memory@4.5.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "System.Threading.Tasks.Extensions@4.5.4"
+          ]
+        ],
+        "System.Text.Encodings.Web@8.0.0": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ]
+        ],
+        "System.Text.Json@8.0.5": [
+          [
+            "FrameworkConditional"
+          ]
+        ],
+        "System.Threading.Tasks.Extensions@4.5.4": [
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5"
+          ],
+          [
+            "FrameworkConditional",
+            "System.Text.Json@8.0.5",
+            "Microsoft.Bcl.AsyncInterfaces@8.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

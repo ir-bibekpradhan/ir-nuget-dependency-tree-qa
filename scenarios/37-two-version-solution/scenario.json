@@ -11,7 +11,8 @@
       "entry": "Fixed/Fixed.csproj",
       "assets": "Fixed/obj/project.assets.json",
       "lock": "Fixed/packages.lock.json",
-      "expected": "expected/Fixed.json"
+      "expected": "expected/Fixed.json",
+      "absentAdvisories": ["GHSA-5crp-9r3c-p9vr"]
     }
   ],
   "restore": {
@@ -20,7 +21,7 @@
   },
   "deterministic": false,
   "nightly": true,
-  "capture": true,
+  "vulnerabilityPackages": ["Newtonsoft.Json"],
   "checks": [
     "nodes",
     "edges",

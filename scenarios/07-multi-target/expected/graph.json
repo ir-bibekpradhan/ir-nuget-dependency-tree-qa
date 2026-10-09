@@ -49,12 +49,12 @@
         {
           "id": "NETStandard.Library@2.0.3",
           "type": "package",
-          "direct": false
+          "direct": true
         },
         {
           "id": "Newtonsoft.Json@12.0.3",
           "type": "package",
-          "direct": false
+          "direct": true
         },
         {
           "id": "MultiTarget",
@@ -63,15 +63,41 @@
       ],
       "edges": [
         {
+          "from": "MultiTarget",
+          "to": "NETStandard.Library@2.0.3",
+          "requested": "[2.0.3, )"
+        },
+        {
+          "from": "MultiTarget",
+          "to": "Newtonsoft.Json@12.0.3",
+          "requested": "[12.0.3, 12.0.3]"
+        },
+        {
           "from": "NETStandard.Library@2.0.3",
           "to": "Microsoft.NETCore.Platforms@1.1.0",
           "requested": "1.1.0"
         }
       ],
-      "paths": {}
+      "paths": {
+        "Microsoft.NETCore.Platforms@1.1.0": [
+          [
+            "MultiTarget",
+            "NETStandard.Library@2.0.3"
+          ]
+        ],
+        "NETStandard.Library@2.0.3": [
+          [
+            "MultiTarget"
+          ]
+        ],
+        "Newtonsoft.Json@12.0.3": [
+          [
+            "MultiTarget"
+          ]
+        ]
+      }
     }
   ],
   "vulnerabilities": []
 }
-
 

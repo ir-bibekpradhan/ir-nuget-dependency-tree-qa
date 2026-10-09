@@ -7,11 +7,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--mode", choices=["deterministic", "nightly", "all", "capture"], default="all")
+parser.add_argument("--scenario", default="all")
+parser.add_argument("--phase", default="all")
 args = parser.parse_args()
 
 items = []
 for path in sorted((ROOT / "scenarios").glob("*/scenario.json")):
     data = json.loads(path.read_text(encoding="utf-8"))
+    if args.scenario != 'all' and data['id'].lower() != args.scenario.lower():
+        continue
+    if args.phase != 'all' and str(data['phase']) != args.phase:
+        continue
     if data.get('capture') and args.mode != 'capture':
         continue
     include = (
@@ -28,4 +34,6 @@ for path in sorted((ROOT / "scenarios").glob("*/scenario.json")):
             "os": data.get("os", "ubuntu-latest"),
         })
 
+if not items:
+    raise SystemExit('No matching runnable scenarios')
 print(json.dumps({"scenario": items}, separators=(",", ":")))
