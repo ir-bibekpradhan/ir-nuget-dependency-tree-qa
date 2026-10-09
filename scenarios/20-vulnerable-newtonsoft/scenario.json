@@ -1,0 +1,21 @@
+{
+  "id": "S17a",
+  "name": "vulnerable-direct-newtonsoft",
+  "phase": 2,
+  "entry": "VulnerableNewtonsoft.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ],
+  "vulnerabilityPackages": [
+    "Newtonsoft.Json"
+  ]
+}

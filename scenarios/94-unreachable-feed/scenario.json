@@ -1,0 +1,25 @@
+{
+  "id": "S21b",
+  "name": "unreachable-feed",
+  "phase": 2,
+  "entry": "UnreachableFeed.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1301"
+    ],
+    "arguments": [
+      "--source",
+      "http://127.0.0.1:1/v3/index.json",
+      "-p:NuGetAudit=false",
+      "--disable-parallel"
+    ]
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "expectedRestoreFailure",
+    "noSuccessfulTree"
+  ]
+}

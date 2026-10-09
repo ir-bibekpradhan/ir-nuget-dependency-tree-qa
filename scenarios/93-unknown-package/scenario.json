@@ -1,0 +1,20 @@
+{
+  "id": "S21a",
+  "name": "unknown-package",
+  "phase": 2,
+  "entry": "UnknownPackage.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1101"
+    ],
+    "arguments": []
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "expectedRestoreFailure",
+    "noSuccessfulTree"
+  ]
+}

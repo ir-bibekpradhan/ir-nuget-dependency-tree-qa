@@ -28,6 +28,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
+      max-parallel: 3
       matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
     env:
       IR_TOKEN: ${{ secrets.IR_TOKEN }}

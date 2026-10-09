@@ -1,0 +1,21 @@
+{
+  "id": "S07b",
+  "name": "downgrade-warning-allowed",
+  "phase": 1,
+  "entry": "DowngradeWarning.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true,
+    "expectedCodes": [
+      "NU1605"
+    ]
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ]
+}

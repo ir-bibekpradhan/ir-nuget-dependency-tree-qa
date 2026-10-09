@@ -1,0 +1,19 @@
+{
+  "id": "S08c",
+  "name": "primed-offline-restore",
+  "phase": 1,
+  "entry": "OfflineRestore.csproj",
+  "restore": {
+    "mode": "offline",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ],
+  "primeCache": true
+}

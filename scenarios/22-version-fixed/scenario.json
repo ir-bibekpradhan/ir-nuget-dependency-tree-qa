@@ -1,0 +1,18 @@
+{
+  "id": "S19b",
+  "name": "fixed-version-context",
+  "phase": 2,
+  "entry": "FixedVersion.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ]
+}

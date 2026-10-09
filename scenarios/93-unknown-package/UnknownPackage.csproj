@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework></PropertyGroup>
+  <ItemGroup><PackageReference Include="IR.QA.Deliberately.Does.Not.Exist.37492817" Version="[13.0.3]" /></ItemGroup>
+</Project>

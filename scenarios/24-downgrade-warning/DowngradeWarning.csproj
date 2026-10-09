@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <WarningsNotAsErrors>NU1605</WarningsNotAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="[2.12.0]" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="[5.0.1]" />
+  </ItemGroup>
+</Project>

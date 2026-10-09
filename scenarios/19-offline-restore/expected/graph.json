@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S08c",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "OfflineRestore"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "OfflineRestore",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "OfflineRestore",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "OfflineRestore"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

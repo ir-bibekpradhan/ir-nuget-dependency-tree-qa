@@ -1,0 +1,19 @@
+{
+  "id": "S24",
+  "name": "repeat-restore-consistency",
+  "phase": 2,
+  "entry": "RepeatRestore.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ],
+  "repeats": 3
+}

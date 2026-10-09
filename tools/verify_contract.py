@@ -31,6 +31,10 @@ Path(args.diff).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8"
 summary = f"# {args.scenario} result\n\n- NuGet vs expected: {'PASS' if result['nugetMatchesExpected'] else 'FAIL'}\n"
 if "irMatchesExpected" in result:
     summary += f"- IR vs expected: {'PASS' if result['irMatchesExpected'] else 'FAIL'}\n"
+else:
+    result['irStatus'] = 'pending-export'
+    summary += "- IR comparison: PENDING (no graph export supplied)\n"
+Path(args.diff).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 Path(args.summary).write_text(summary, encoding="utf-8")
 print(summary)
 if not passed:

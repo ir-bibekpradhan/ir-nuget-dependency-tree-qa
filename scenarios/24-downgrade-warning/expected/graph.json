@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S07b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "DowngradeWarning"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@2.12.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "DowngradeWarning",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@2.12.0",
+          "requested": "3.1.1"
+        },
+        {
+          "from": "DowngradeWarning",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, 5.0.1]"
+        },
+        {
+          "from": "DowngradeWarning",
+          "to": "Serilog@2.12.0",
+          "requested": "[2.12.0, 2.12.0]"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "DowngradeWarning"
+          ]
+        ],
+        "Serilog@2.12.0": [
+          [
+            "DowngradeWarning"
+          ],
+          [
+            "DowngradeWarning",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

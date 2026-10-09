@@ -1,0 +1,21 @@
+{
+  "id": "S19a",
+  "name": "vulnerable-version-context",
+  "phase": 2,
+  "entry": "VulnerableVersion.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ],
+  "vulnerabilityPackages": [
+    "Newtonsoft.Json"
+  ]
+}

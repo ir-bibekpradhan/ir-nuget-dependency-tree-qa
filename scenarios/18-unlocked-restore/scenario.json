@@ -1,0 +1,18 @@
+{
+  "id": "S08a",
+  "name": "unlocked-restore",
+  "phase": 1,
+  "entry": "UnlockedRestore.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags"
+  ]
+}
