@@ -1,0 +1,6 @@
+{
+  "IR.QA.Root": [
+    "IR.QA.Child"
+  ],
+  "IR.QA.Child": []
+}

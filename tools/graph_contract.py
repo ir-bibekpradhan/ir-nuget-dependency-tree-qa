@@ -23,7 +23,13 @@ def split_key(key):
 
 def split_target(value):
     parts = value.split("/", 1)
-    return parts[0], parts[1] if len(parts) == 2 else None
+    framework = parts[0]
+    match = re.fullmatch(r"\.(NETStandard|NETCoreApp|NETFramework),Version=v([\d.]+)", framework, re.I)
+    if match:
+        family, version = match.groups()
+        framework = ('netstandard' + version if family.lower() == 'netstandard'
+                     else 'net' + (version.replace('.', '') if family.lower() == 'netframework' else version))
+    return framework, parts[1] if len(parts) == 2 else None
 
 
 def load_json(path):

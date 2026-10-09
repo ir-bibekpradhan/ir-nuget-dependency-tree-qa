@@ -18,7 +18,7 @@ for path in sorted((ROOT / "scenarios").glob("*/scenario.json")):
     ids.add(data.get("id"))
     if not (path.parent / data.get("entry", "")).exists():
         errors.append(f"{path}: entry does not exist")
-    if data.get("restore", {}).get("expectSuccess") and not (path.parent / "expected" / "graph.json").exists():
+    if data.get("restore", {}).get("expectSuccess") and not data.get('capture') and not (path.parent / "expected" / "graph.json").exists():
         errors.append(f"{path}: successful scenario lacks expected/graph.json")
     if not (path.parent / "README.md").exists():
         errors.append(f"{path}: missing README.md")

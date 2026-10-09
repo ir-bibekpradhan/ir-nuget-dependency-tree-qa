@@ -1,0 +1,20 @@
+{
+  "id": "S15b",
+  "name": "local-source-mapping",
+  "phase": 2,
+  "entry": "LocalFeedMapping.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "localFeed": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "sourceMapping"
+  ]
+}

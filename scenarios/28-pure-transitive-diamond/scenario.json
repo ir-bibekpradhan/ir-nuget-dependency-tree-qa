@@ -1,0 +1,20 @@
+{
+  "id": "S05b",
+  "name": "pure-transitive-diamond",
+  "phase": 1,
+  "entry": "PureTransitive.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}

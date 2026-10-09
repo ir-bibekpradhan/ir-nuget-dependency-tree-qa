@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S15b",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "LocalFeedMapping"
+      ],
+      "nodes": [
+        {
+          "id": "LocalFeedMapping",
+          "type": "project"
+        },
+        {
+          "id": "IR.QA.Root@1.0.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "IR.QA.Child@1.0.0",
+          "type": "package",
+          "direct": false
+        }
+      ],
+      "edges": [
+        {
+          "from": "LocalFeedMapping",
+          "to": "IR.QA.Root@1.0.0",
+          "requested": "[1.0.0, 1.0.0]"
+        },
+        {
+          "from": "IR.QA.Root@1.0.0",
+          "to": "IR.QA.Child@1.0.0",
+          "requested": "1.0.0"
+        }
+      ],
+      "paths": {
+        "IR.QA.Root@1.0.0": [
+          [
+            "LocalFeedMapping"
+          ]
+        ],
+        "IR.QA.Child@1.0.0": [
+          [
+            "LocalFeedMapping",
+            "IR.QA.Root@1.0.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

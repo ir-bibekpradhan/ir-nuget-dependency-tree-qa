@@ -6,6 +6,7 @@
   "restore": {
     "mode": "generate",
     "expectSuccess": true,
+    "arguments": ["-p:WarningsAsErrors="],
     "expectedCodes": [
       "NU1605"
     ]

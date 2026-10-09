@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="[13.0.3]" PrivateAssets="all"/>
+    <PackageReference Include="System.Text.Json" Version="[8.0.5]" ExcludeAssets="runtime" IncludeAssets="compile;build;analyzers;buildtransitive"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="[8.0.0]" PrivateAssets="all" IncludeAssets="analyzers;build"/>
+  </ItemGroup>
+</Project>

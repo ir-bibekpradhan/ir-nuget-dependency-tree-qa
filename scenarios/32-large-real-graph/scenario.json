@@ -1,0 +1,20 @@
+{
+  "id": "S22b",
+  "name": "large-real-graph",
+  "phase": 3,
+  "entry": "LargeRealGraph.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}

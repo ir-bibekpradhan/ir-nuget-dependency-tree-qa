@@ -1,0 +1,20 @@
+{
+  "id": "S09b",
+  "name": "framework-conditional-package",
+  "phase": 1,
+  "entry": "FrameworkConditional.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "frameworks",
+    "conditionalAbsence",
+    "nodes",
+    "edges",
+    "paths"
+  ]
+}

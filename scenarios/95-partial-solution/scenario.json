@@ -1,0 +1,19 @@
+{
+  "id": "S21c",
+  "name": "partial-solution-restore",
+  "phase": 2,
+  "entry": "Partial.sln",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1101"
+    ]
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "partialRestore",
+    "noCompleteSuccessfulTree"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "S12b",
+  "name": "central-override",
+  "phase": 2,
+  "entry": "CentralOverride.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}

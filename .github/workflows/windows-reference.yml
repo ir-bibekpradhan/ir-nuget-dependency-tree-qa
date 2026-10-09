@@ -1,0 +1,19 @@
+name: Native Windows NuGet reference
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-reference:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.419
+      - run: python tools/run_scenario.py scenarios/33-windows-rid
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-windows-S11b
+          path: out/S11b/

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S20c",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "EvidenceC"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "EvidenceC",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "EvidenceC",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "EvidenceC"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

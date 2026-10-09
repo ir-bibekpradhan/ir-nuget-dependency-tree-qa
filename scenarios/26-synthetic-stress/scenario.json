@@ -1,0 +1,20 @@
+{
+  "id": "S23",
+  "name": "synthetic-depth-fanout-diamond",
+  "phase": 3,
+  "entry": "SyntheticStress.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "localFeed": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "sourceMapping"
+  ]
+}

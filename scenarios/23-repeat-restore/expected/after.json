@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S24",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "RepeatRestore"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@4.1.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "RepeatRestore",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "RepeatRestore",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, 5.0.1]"
+        },
+        {
+          "from": "RepeatRestore",
+          "to": "Serilog@4.1.0",
+          "requested": "[4.1.0, 4.1.0]"
+        },
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@4.1.0",
+          "requested": "3.1.1"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "RepeatRestore"
+          ]
+        ],
+        "Serilog@4.1.0": [
+          [
+            "RepeatRestore"
+          ],
+          [
+            "RepeatRestore",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

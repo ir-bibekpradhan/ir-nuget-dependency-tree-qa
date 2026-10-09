@@ -1,0 +1,234 @@
+{
+  "IR.QA.Root": [
+    "IR.QA.Depth01",
+    "IR.QA.Fan01",
+    "IR.QA.Fan02",
+    "IR.QA.Fan03",
+    "IR.QA.Fan04",
+    "IR.QA.Fan05",
+    "IR.QA.Fan06",
+    "IR.QA.Fan07",
+    "IR.QA.Fan08",
+    "IR.QA.Fan09",
+    "IR.QA.Fan10",
+    "IR.QA.Fan11",
+    "IR.QA.Fan12",
+    "IR.QA.Fan13",
+    "IR.QA.Fan14",
+    "IR.QA.Fan15",
+    "IR.QA.Fan16",
+    "IR.QA.Fan17",
+    "IR.QA.Fan18",
+    "IR.QA.Fan19",
+    "IR.QA.Fan20"
+  ],
+  "IR.QA.Depth01": [
+    "IR.QA.Depth02"
+  ],
+  "IR.QA.Depth02": [
+    "IR.QA.Depth03"
+  ],
+  "IR.QA.Depth03": [
+    "IR.QA.Depth04"
+  ],
+  "IR.QA.Depth04": [
+    "IR.QA.Depth05"
+  ],
+  "IR.QA.Depth05": [
+    "IR.QA.Depth06"
+  ],
+  "IR.QA.Depth06": [
+    "IR.QA.Depth07"
+  ],
+  "IR.QA.Depth07": [
+    "IR.QA.Depth08"
+  ],
+  "IR.QA.Depth08": [
+    "IR.QA.Depth09"
+  ],
+  "IR.QA.Depth09": [
+    "IR.QA.Depth10"
+  ],
+  "IR.QA.Depth10": [
+    "IR.QA.Depth11"
+  ],
+  "IR.QA.Depth11": [
+    "IR.QA.Depth12"
+  ],
+  "IR.QA.Depth12": [
+    "IR.QA.Depth13"
+  ],
+  "IR.QA.Depth13": [
+    "IR.QA.Depth14"
+  ],
+  "IR.QA.Depth14": [
+    "IR.QA.Depth15"
+  ],
+  "IR.QA.Depth15": [
+    "IR.QA.Depth16"
+  ],
+  "IR.QA.Depth16": [
+    "IR.QA.Depth17"
+  ],
+  "IR.QA.Depth17": [
+    "IR.QA.Depth18"
+  ],
+  "IR.QA.Depth18": [
+    "IR.QA.Depth19"
+  ],
+  "IR.QA.Depth19": [
+    "IR.QA.Depth20"
+  ],
+  "IR.QA.Depth20": [
+    "IR.QA.Depth21"
+  ],
+  "IR.QA.Depth21": [
+    "IR.QA.Depth22"
+  ],
+  "IR.QA.Depth22": [
+    "IR.QA.Depth23"
+  ],
+  "IR.QA.Depth23": [
+    "IR.QA.Depth24"
+  ],
+  "IR.QA.Depth24": [
+    "IR.QA.Depth25"
+  ],
+  "IR.QA.Depth25": [
+    "IR.QA.Depth26"
+  ],
+  "IR.QA.Depth26": [
+    "IR.QA.Depth27"
+  ],
+  "IR.QA.Depth27": [
+    "IR.QA.Depth28"
+  ],
+  "IR.QA.Depth28": [
+    "IR.QA.Depth29"
+  ],
+  "IR.QA.Depth29": [
+    "IR.QA.Depth30"
+  ],
+  "IR.QA.Depth30": [
+    "IR.QA.Depth31"
+  ],
+  "IR.QA.Depth31": [
+    "IR.QA.Depth32"
+  ],
+  "IR.QA.Depth32": [
+    "IR.QA.Depth33"
+  ],
+  "IR.QA.Depth33": [
+    "IR.QA.Depth34"
+  ],
+  "IR.QA.Depth34": [
+    "IR.QA.Depth35"
+  ],
+  "IR.QA.Depth35": [
+    "IR.QA.Depth36"
+  ],
+  "IR.QA.Depth36": [
+    "IR.QA.Depth37"
+  ],
+  "IR.QA.Depth37": [
+    "IR.QA.Depth38"
+  ],
+  "IR.QA.Depth38": [
+    "IR.QA.Depth39"
+  ],
+  "IR.QA.Depth39": [
+    "IR.QA.Depth40"
+  ],
+  "IR.QA.Depth40": [
+    "IR.QA.Depth41"
+  ],
+  "IR.QA.Depth41": [
+    "IR.QA.Depth42"
+  ],
+  "IR.QA.Depth42": [
+    "IR.QA.Depth43"
+  ],
+  "IR.QA.Depth43": [
+    "IR.QA.Depth44"
+  ],
+  "IR.QA.Depth44": [
+    "IR.QA.Depth45"
+  ],
+  "IR.QA.Depth45": [
+    "IR.QA.Depth46"
+  ],
+  "IR.QA.Depth46": [
+    "IR.QA.Depth47"
+  ],
+  "IR.QA.Depth47": [
+    "IR.QA.Depth48"
+  ],
+  "IR.QA.Depth48": [
+    "IR.QA.Depth49"
+  ],
+  "IR.QA.Depth49": [
+    "IR.QA.Depth50"
+  ],
+  "IR.QA.Depth50": [],
+  "IR.QA.Fan01": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan02": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan03": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan04": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan05": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan06": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan07": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan08": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan09": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan10": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan11": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan12": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan13": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan14": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan15": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan16": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan17": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan18": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan19": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Fan20": [
+    "IR.QA.Shared"
+  ],
+  "IR.QA.Shared": []
+}

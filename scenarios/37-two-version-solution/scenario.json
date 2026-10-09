@@ -1,0 +1,31 @@
+{
+  "id": "S19c",
+  "name": "two-version-solution",
+  "phase": 2,
+  "entry": "App/App.csproj",
+  "assets": "App/obj/project.assets.json",
+  "lock": "App/packages.lock.json",
+  "additionalGraphs": [
+    {
+      "name": "Fixed",
+      "entry": "Fixed/Fixed.csproj",
+      "assets": "Fixed/obj/project.assets.json",
+      "lock": "Fixed/packages.lock.json",
+      "expected": "expected/Fixed.json"
+    }
+  ],
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "privateAssetFlow",
+    "projectContexts"
+  ]
+}

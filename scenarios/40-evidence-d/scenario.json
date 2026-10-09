@@ -1,0 +1,17 @@
+{
+  "id": "S20d",
+  "name": "staleAssets",
+  "phase": 2,
+  "entry": "EvidenceD.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "mutateEvidence": "staleAssets",
+  "checks": [
+    "baselineGraph",
+    "invalidEvidenceDetection"
+  ]
+}

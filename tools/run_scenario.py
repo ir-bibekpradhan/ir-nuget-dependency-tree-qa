@@ -36,6 +36,9 @@ def execute(command, cwd=scenario_dir):
 
 
 restore = metadata["restore"]
+if metadata.get('localFeed'):
+    from local_feed import prepare
+    prepare(scenario_dir)
 restore_args = list(restore.get("arguments", []))
 if restore["mode"] == "locked":
     restore_args.append("--locked-mode")
@@ -107,6 +110,29 @@ ir_argument = []
 shutil.copy2(assets, output / "project.assets.json")
 shutil.copy2(lock, output / "packages.lock.json")
 from graph_contract import build_graph, canonical, load_json
+if metadata.get('floating'):
+    import urllib.request
+    from graph_contract import normalize_version
+    rule = metadata['floating']
+    with urllib.request.urlopen('https://api.nuget.org/v3-flatcontainer/' + rule['package'].lower() + '/index.json', timeout=60) as response:
+        published = json.load(response)['versions']
+    candidates = [version for version in published if '-' not in version and version.startswith(rule['prefix'])]
+    highest = max(candidates, key=lambda version: tuple(int(part) for part in normalize_version(version).split('.')))
+    draft = load_json(expected)
+    for target in draft['targets']:
+        node = next(node for node in target['nodes'] if node['type'] == 'package' and node['id'].split('@')[0].lower() == rule['package'].lower())
+        old_ref = node['id']
+        new_ref = rule['package'] + '@' + highest
+        node['id'] = new_ref
+        for edge in target['edges']:
+            for field in ('from', 'to'):
+                if edge[field] == old_ref:
+                    edge[field] = new_ref
+        target['paths'] = {(new_ref if key == old_ref else key): [[new_ref if part == old_ref else part for part in path] for path in values]
+                           for key, values in target['paths'].items()}
+    expected = output / 'floating-expected.json'
+    expected.write_text(json.dumps(draft, indent=2) + '\n', encoding='utf-8')
+    (output / 'floating-metadata.json').write_text(json.dumps({'rule': rule, 'highestStable': highest, 'published': published}, indent=2) + '\n', encoding='utf-8')
 
 
 def graph_hash():
@@ -152,3 +178,61 @@ verify_command = [
 verify_code, _ = execute(verify_command)
 if verify_code != 0:
     raise SystemExit(f"{scenario_id}: graph contract comparison failed")
+for context in metadata.get('additionalGraphs', []):
+    context_code, context_log = execute(['dotnet', 'restore', str(scenario_dir / context['entry']), '--locked-mode'])
+    (output / (context['name'] + '-restore.log')).write_text(context_log, encoding='utf-8')
+    if context_code:
+        raise SystemExit(f"Additional project {context['name']} failed restore")
+    context_output = output / context['name']
+    context_output.mkdir(exist_ok=True)
+    command = [sys.executable, str(ROOT / 'tools/verify_contract.py'), '--scenario', scenario_id,
+               '--assets', str(scenario_dir / context['assets']), '--lock', str(scenario_dir / context['lock']),
+               '--expected', str(scenario_dir / context['expected']), '--actual', str(context_output / 'nuget.json'),
+               '--diff', str(context_output / 'diff.json'), '--summary', str(context_output / 'summary.md')]
+    context_verify_code, _ = execute(command)
+    if context_verify_code:
+        raise SystemExit(f"Additional project {context['name']} graph differs")
+if metadata.get('afterRestore'):
+    import xml.etree.ElementTree as ET
+    change = metadata['afterRestore']
+    tree = ET.parse(entry)
+    for package in tree.getroot().iter('PackageReference'):
+        if package.get('Include', '').lower() == change['package'].lower():
+            package.set('Version', '[' + change['version'] + ']')
+    tree.write(entry, encoding='unicode')
+    after_code, after_log = execute(['dotnet', 'restore', str(entry), '--use-lock-file', '--force-evaluate'])
+    (output / 'after-restore.log').write_text(after_log, encoding='utf-8')
+    if after_code or graph_hash() == hashes[0]:
+        raise SystemExit('Version change did not produce a different successful graph')
+    after_output = output / 'after'
+    after_output.mkdir(exist_ok=True)
+    after_verify, _ = execute([sys.executable, str(ROOT / 'tools/verify_contract.py'), '--scenario', scenario_id,
+                              '--assets', str(assets), '--lock', str(lock), '--expected', str(scenario_dir / change['expected']),
+                              '--actual', str(after_output / 'nuget.json'), '--diff', str(after_output / 'diff.json'),
+                              '--summary', str(after_output / 'summary.md')])
+    if after_verify:
+        raise SystemExit('Changed version graph differs from reviewed expectation')
+if metadata.get('mutateEvidence'):
+    mutation = metadata['mutateEvidence']
+    if mutation == 'missingAssets':
+        assets.unlink()
+    elif mutation == 'missingLock':
+        lock.unlink()
+    elif mutation == 'malformedAssets':
+        assets.write_text('{"targets":', encoding='utf-8')
+    elif mutation == 'staleAssets':
+        assets.write_text(assets.read_text(encoding='utf-8').replace('13.0.3', '12.0.3'), encoding='utf-8')
+    else:
+        raise SystemExit('Unknown mutation: ' + mutation)
+    (output / 'mutation.json').write_text(json.dumps({'mutation': mutation, 'expectedIR': 'evidence error or explicitly reduced confidence'}, indent=2) + '\n', encoding='utf-8')
+    with (output / 'summary.md').open('a', encoding='utf-8') as summary:
+        summary.write(f"- Evidence deliberately altered before PSE collection: {mutation}\n")
+metrics = load_json(output / 'metrics.json')
+metrics['totalSeconds'] = time.perf_counter() - started
+try:
+    import resource
+    metrics['peakChildMemoryKiB'] = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+except ImportError:
+    metrics['peakChildMemoryKiB'] = None
+    metrics['memoryNote'] = 'POSIX peak child process memory is unavailable on Windows'
+(output / 'metrics.json').write_text(json.dumps(metrics, indent=2) + '\n', encoding='utf-8')

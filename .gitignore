@@ -6,5 +6,7 @@ results/
 out/
 .nuget/
 scenarios/03-floating-version/packages.lock.json
+**/feed/*.nupkg
+**/duplicate-feed/*.nupkg
 **/__pycache__/
 **/*.pyc

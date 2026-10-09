@@ -1,0 +1,22 @@
+{
+  "id": "S11b",
+  "name": "windows-rid",
+  "phase": 2,
+  "entry": "WindowsRid.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ],
+  "os": "ubuntu-latest",
+  "rid": "win-x64"
+}

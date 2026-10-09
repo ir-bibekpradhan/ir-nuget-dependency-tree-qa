@@ -1,0 +1,31 @@
+{
+  "id": "S16b",
+  "name": "asset-flow",
+  "phase": 2,
+  "entry": "App/App.csproj",
+  "assets": "App/obj/project.assets.json",
+  "lock": "App/packages.lock.json",
+  "additionalGraphs": [
+    {
+      "name": "Library",
+      "entry": "Library/Library.csproj",
+      "assets": "Library/obj/project.assets.json",
+      "lock": "Library/packages.lock.json",
+      "expected": "expected/Library.json"
+    }
+  ],
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "privateAssetFlow",
+    "projectContexts"
+  ]
+}

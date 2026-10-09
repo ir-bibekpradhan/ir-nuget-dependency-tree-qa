@@ -1,0 +1,20 @@
+{
+  "id": "S06b",
+  "name": "direct-wins-logging",
+  "phase": 1,
+  "entry": "DirectWinsLogging.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ]
+}

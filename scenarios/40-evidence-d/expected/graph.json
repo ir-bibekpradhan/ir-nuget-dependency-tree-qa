@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "scenario": "S20d",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "EvidenceD"
+      ],
+      "nodes": [
+        {
+          "id": "Newtonsoft.Json@13.0.3",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "EvidenceD",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "EvidenceD",
+          "to": "Newtonsoft.Json@13.0.3",
+          "requested": "[13.0.3, 13.0.3]"
+        }
+      ],
+      "paths": {
+        "Newtonsoft.Json@13.0.3": [
+          [
+            "EvidenceD"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

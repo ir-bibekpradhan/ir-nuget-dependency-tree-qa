@@ -15,5 +15,6 @@
     "paths",
     "directFlags"
   ],
-  "repeats": 3
+  "repeats": 3,
+  "afterRestore": {"package": "Serilog", "version": "4.1.0", "expected": "expected/after.json"}
 }

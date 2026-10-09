@@ -1,0 +1,23 @@
+{
+  "id": "S18",
+  "name": "vulnerable-transitive",
+  "phase": 2,
+  "entry": "VulnerableTransitive.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "directFlags",
+    "frameworks"
+  ],
+  "vulnerabilityPackages": [
+    "Newtonsoft.Json"
+  ]
+}

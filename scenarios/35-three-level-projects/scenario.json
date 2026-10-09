@@ -1,0 +1,31 @@
+{
+  "id": "S10b",
+  "name": "three-level-projects",
+  "phase": 1,
+  "entry": "App/App.csproj",
+  "assets": "App/obj/project.assets.json",
+  "lock": "App/packages.lock.json",
+  "additionalGraphs": [
+    {
+      "name": "Core",
+      "entry": "Core/Core.csproj",
+      "assets": "Core/obj/project.assets.json",
+      "lock": "Core/packages.lock.json",
+      "expected": "expected/Core.json"
+    }
+  ],
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "privateAssetFlow",
+    "projectContexts"
+  ]
+}

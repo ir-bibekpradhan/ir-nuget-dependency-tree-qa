@@ -1,0 +1,22 @@
+{
+  "id": "S03b",
+  "name": "floating-any",
+  "phase": 1,
+  "entry": "FloatingAny.csproj",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": true
+  },
+  "deterministic": false,
+  "nightly": true,
+  "checks": [
+    "nodes",
+    "edges",
+    "paths",
+    "versions"
+  ],
+  "floating": {
+    "package": "Newtonsoft.Json",
+    "prefix": ""
+  }
+}

@@ -11,6 +11,7 @@
   "frameworks": [],
   "deterministic": false,
   "nightly": true,
+  "floating": {"package": "Newtonsoft.Json", "prefix": "13."},
   "checks": [
     "nodes",
     "edges",
@@ -19,4 +20,3 @@
     "frameworks"
   ]
 }
-

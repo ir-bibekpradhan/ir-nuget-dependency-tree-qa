@@ -1,0 +1,17 @@
+{
+  "id": "S20b",
+  "name": "malformedAssets",
+  "phase": 2,
+  "entry": "EvidenceB.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "mutateEvidence": "malformedAssets",
+  "checks": [
+    "baselineGraph",
+    "invalidEvidenceDetection"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "S20a",
+  "name": "missingAssets",
+  "phase": 2,
+  "entry": "EvidenceA.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "mutateEvidence": "missingAssets",
+  "checks": [
+    "baselineGraph",
+    "invalidEvidenceDetection"
+  ]
+}
