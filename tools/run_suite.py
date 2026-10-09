@@ -26,7 +26,7 @@ for expected_path in sorted((ROOT / "scenarios").glob("*/expected.json")):
     mode = expected.get("mode", "success")
     restore_args = expected.get("restoreArgs")
     if restore_args is None:
-        restore_args = ["--use-lock-file", "--force-evaluate"]
+        restore_args = ["--locked-mode"]
 
     print(f"\n=== {name}: {expected['description']} ===", flush=True)
     code, output = run(["dotnet", "restore", project, *restore_args], scenario_dir)
@@ -79,4 +79,3 @@ if failures:
     for failure in failures:
         print(f"- {failure}", file=sys.stderr)
     raise SystemExit(1)
-

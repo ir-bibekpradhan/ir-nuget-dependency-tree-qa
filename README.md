@@ -29,7 +29,7 @@ Runnable regression suite for comparing InvisiRisk dependency trees with NuGet's
 
 ## Ground truth
 
-Every successful scenario is checked against `obj/project.assets.json`. The verifier validates resolved nodes, versions, root/package edges, shared incoming paths, framework/RID separation, minimum graph size, and graph depth. CI also records `packages.lock.json`, package listings, restore logs, and normalized actual graphs as artifacts.
+Every successful scenario has a committed `packages.lock.json` and restores in locked mode. The verifier checks `obj/project.assets.json` for resolved nodes, versions, root/package edges, shared incoming paths, framework/RID separation, minimum graph size, and graph depth. CI also records package listings, restore logs, and normalized actual graphs as artifacts.
 
 Run the complete suite with .NET 8 and Python 3:
 
@@ -50,4 +50,3 @@ The primary UI/API assertions are:
 - Separate graphs for each framework/RID
 - No successful dependency tree for failed restores
 - Vulnerabilities attached only to the affected package version
-

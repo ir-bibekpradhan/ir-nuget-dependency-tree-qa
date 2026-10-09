@@ -1,7 +1,7 @@
 {
   "description": "Package source mapping retains the same resolved identity",
   "project": "SourceMapping.csproj",
-  "restoreArgs": ["--configfile", "NuGet.Config", "--use-lock-file", "--force-evaluate"],
+  "restoreArgs": ["--configfile", "NuGet.Config", "--locked-mode"],
   "targets": {
     "net8.0": {
       "packages": { "Newtonsoft.Json": { "version": "13.0.3", "direct": true } },

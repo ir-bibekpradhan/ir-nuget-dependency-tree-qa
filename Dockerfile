@@ -5,7 +5,6 @@ ARG PROJECT=scenarios/04-shared-dependency/SharedDependency.csproj
 WORKDIR /src
 COPY . .
 
-RUN dotnet restore "$PROJECT" --use-lock-file --force-evaluate
+RUN dotnet restore "$PROJECT" --locked-mode
 
 CMD ["dotnet", "--info"]
-
