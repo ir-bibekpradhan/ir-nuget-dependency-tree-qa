@@ -56,6 +56,11 @@ class GraphContractTests(unittest.TestCase):
                                  'net8.0/win-x64': {'Native': {'type': 'Transitive'}}}}
         self.assertEqual(set(_target_lock(lock, 'net8.0/win-x64')), {'Parent', 'Native'})
 
+    def test_excluded_asset_placeholder(self):
+        from graph_contract import has_real_assets
+        self.assertFalse(has_real_assets({'runtime': {'lib/net8.0/_._': {}}}, 'runtime'))
+        self.assertTrue(has_real_assets({'runtime': {'lib/net8.0/System.Text.Json.dll': {}}}, 'runtime'))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -146,6 +146,10 @@ def check_listing(graph, listing):
     return errors
 
 
+def has_real_assets(value, field):
+    return any(Path(asset).name != '_._' for asset in value.get(field, {}))
+
+
 def _node_key(node):
     if node["type"] == "package":
         package_id, version = node["id"].rsplit("@", 1)

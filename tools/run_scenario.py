@@ -113,7 +113,7 @@ if metadata.get("vulnerabilityPackages") or metadata.get('absentAdvisories'):
 ir_argument = []
 shutil.copy2(assets, output / "project.assets.json")
 shutil.copy2(lock, output / "packages.lock.json")
-from graph_contract import build_graph, canonical, load_json, check_listing
+from graph_contract import build_graph, canonical, load_json, check_listing, has_real_assets
 listing_errors = check_listing(build_graph(load_json(assets), load_json(lock), scenario_id), json.loads(list_output))
 if listing_errors:
     raise SystemExit('; '.join(listing_errors))
@@ -209,7 +209,7 @@ for context in metadata.get('additionalGraphs', []):
         evidence = load_json(scenario_dir / context['assets'])
         found = [value for target in evidence['targets'].values() for key, value in target.items()
                  if key.split('/')[0].lower() == check['package'].lower()]
-        if not found or any(value.get(field) for value in found for field in check.get('absent', [])):
+        if not found or any(has_real_assets(value, field) for value in found for field in check.get('absent', [])):
             raise SystemExit('Excluded asset appeared for ' + check['package'])
     if context.get('absentAdvisories'):
         code, vulnerability_output = execute(['dotnet', 'list', str(scenario_dir / context['entry']), 'package',
