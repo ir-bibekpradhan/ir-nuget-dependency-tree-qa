@@ -41,6 +41,12 @@ python tools/run_suite.py
 
 The GitHub Actions workflow conditionally starts InvisiRisk PSE when the repository secret `IR_TOKEN` is available. All NuGet restores and the Docker baseline then run through PSE. No token or certificate is stored in the repository.
 
+Configure the secret securely with GitHub CLI:
+
+```bash
+gh secret set IR_TOKEN --repo ir-bibekpradhan/ir-nuget-dependency-tree-qa
+```
+
 The primary UI/API assertions are:
 
 - Exact resolved package ID and version
