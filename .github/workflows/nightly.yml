@@ -31,7 +31,8 @@ jobs:
       matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
     env:
       IR_TOKEN: ${{ secrets.IR_TOKEN }}
-      NUGET_PACKAGES: ${{ runner.temp }}/nuget-packages-${{ matrix.scenario.id }}
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages-${{ matrix.scenario.id }}
+      NUGET_HTTP_CACHE_PATH: ${{ github.workspace }}/.nuget/http-${{ matrix.scenario.id }}
 
     steps:
       - name: Set up InvisiRisk PSE
