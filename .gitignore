@@ -3,5 +3,8 @@
 **/*.user
 .vs/
 results/
+out/
+.nuget/
+scenarios/03-floating-version/packages.lock.json
 **/__pycache__/
 **/*.pyc

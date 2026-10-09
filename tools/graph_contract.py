@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import re
+from collections import Counter
 from pathlib import Path
 
 
@@ -10,7 +11,9 @@ def normalize_version(value):
     if not match:
         return value.lower()
     major, minor, patch, suffix = match.groups()
-    return f"{major}.{minor or '0'}.{patch or '0'}{suffix}".lower()
+    if suffix == '.0':
+        suffix = ''
+    return f"{int(major)}.{int(minor or '0')}.{int(patch or '0')}{suffix}".lower()
 
 
 def split_key(key):
@@ -134,14 +137,46 @@ def canonical(graph):
             for destination, values in target.get("paths", {}).items()
             for path in values
         }
-        result[key] = {"nodes": nodes, "edges": edges, "paths": paths}
+        result[key] = {"nodes": nodes, "edges": edges, "paths": paths,
+                       "roots": {_ref_key(root) for root in target.get('roots', [])}}
     return result
+
+
+def structural_errors(graph):
+    errors = []
+    target_keys = []
+    for target in graph.get('targets', []):
+        key = (target['framework'].lower(), (target.get('rid') or '').lower())
+        target_keys.append(key)
+        nodes = [_ref_key(node['id']) for node in target.get('nodes', [])]
+        edges = [(_ref_key(edge['from']), _ref_key(edge['to'])) for edge in target.get('edges', [])]
+        paths = [(_ref_key(destination), tuple(_ref_key(part) for part in path))
+                 for destination, values in target.get('paths', {}).items() for path in values]
+        for label, values in [('node', nodes), ('edge', edges), ('path', paths)]:
+            for value, count in Counter(values).items():
+                if count > 1:
+                    errors.append(f'{key}: duplicate {label} {value}')
+        refs = set(nodes)
+        for root in target.get('roots', []):
+            if _ref_key(root) not in refs:
+                errors.append(f'{key}: absent root {root}')
+        for parent, child in edges:
+            if parent not in refs or child not in refs:
+                errors.append(f'{key}: dangling edge {parent} -> {child}')
+    for key, count in Counter(target_keys).items():
+        if count > 1:
+            errors.append(f'duplicate target {key}')
+    if not target_keys:
+        errors.append('no target graphs')
+    return errors
 
 
 def compare(expected, actual, compare_requested=True):
     left = canonical(expected)
     right = canonical(actual)
-    diff = {"missingTargets": [], "extraTargets": [], "targets": {}}
+    diff = {"missingTargets": [], "extraTargets": [], "targets": {},
+            "expectedStructureErrors": structural_errors(expected),
+            "actualStructureErrors": structural_errors(actual)}
 
     diff["missingTargets"] = sorted([list(key) for key in left.keys() - right.keys()])
     diff["extraTargets"] = sorted([list(key) for key in right.keys() - left.keys()])
@@ -152,6 +187,8 @@ def compare(expected, actual, compare_requested=True):
             expected_edges = {(a, b) for a, b, _ in expected_edges}
             actual_edges = {(a, b) for a, b, _ in actual_edges}
         target_diff = {
+            "missingRoots": sorted(left[key]['roots'] - right[key]['roots']),
+            "extraRoots": sorted(right[key]['roots'] - left[key]['roots']),
             "missingNodes": sorted(map(str, left[key]["nodes"] - right[key]["nodes"])),
             "extraNodes": sorted(map(str, right[key]["nodes"] - left[key]["nodes"])),
             "missingEdges": sorted(map(str, expected_edges - actual_edges)),
@@ -162,5 +199,5 @@ def compare(expected, actual, compare_requested=True):
         if any(target_diff.values()):
             diff["targets"]["/".join(filter(None, key))] = target_diff
 
-    passed = not diff["missingTargets"] and not diff["extraTargets"] and not diff["targets"]
+    passed = not any(diff.values())
     return passed, diff
