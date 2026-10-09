@@ -1,0 +1,66 @@
+name: Verify NuGet dependency-tree scenarios
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+
+jobs:
+  verify:
+    name: Verify NuGet graphs through PSE
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      IR_TOKEN: ${{ secrets.IR_TOKEN }}
+
+    steps:
+      - name: Set up InvisiRisk PSE
+        if: env.IR_TOKEN != ''
+        uses: invisirisk/pse-action@latest
+        with:
+          api_url: https://app.stage.invisirisk.com
+          app_token: ${{ secrets.IR_TOKEN }}
+
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Run all dependency-tree scenarios
+        run: python3 tools/run_suite.py
+
+      - name: Verify baseline Docker restore through PSE
+        if: env.IR_TOKEN != ''
+        run: >-
+          docker build
+          --tag ir-nuget-dependency-tree-qa
+          --build-arg BUILDKIT_SYNTAX=public.ecr.aws/w3c0c0n7/invisirisk/baf-buildkit:latest
+          --secret id=pse-ca,src="$PSE_CA_CERT_PATH"
+          --build-arg PSE_PROXY="http://$PSE_PROXY_IP:3128"
+          .
+
+      - name: Verify baseline Docker restore without PSE
+        if: env.IR_TOKEN == ''
+        run: docker build --tag ir-nuget-dependency-tree-qa .
+
+      - name: Upload dependency evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-dependency-evidence
+          if-no-files-found: warn
+          path: |
+            results/
+            scenarios/**/packages.lock.json
+            scenarios/**/obj/project.assets.json
+            scenarios/**/actual-graph.json
+            scenarios/**/restore.log
+

@@ -1,0 +1,23 @@
+{
+  "description": "Two configuration branches converge on shared components",
+  "project": "DiamondDependency.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Microsoft.Extensions.Configuration.Json": { "version": "8.0.0", "direct": true },
+        "Microsoft.Extensions.Configuration.EnvironmentVariables": { "version": "8.0.0", "direct": true },
+        "Microsoft.Extensions.Configuration": { "version": "8.0.0" },
+        "Microsoft.Extensions.Configuration.FileExtensions": { "version": "8.0.0" }
+      },
+      "edges": [
+        ["Microsoft.Extensions.Configuration.Json", "Microsoft.Extensions.Configuration.FileExtensions"],
+        ["Microsoft.Extensions.Configuration.FileExtensions", "Microsoft.Extensions.Configuration"],
+        ["Microsoft.Extensions.Configuration.EnvironmentVariables", "Microsoft.Extensions.Configuration"]
+      ],
+      "incoming": { "Microsoft.Extensions.Configuration": 2 },
+      "anyShared": true,
+      "minPackages": 8,
+      "minDepth": 3
+    }
+  }
+}

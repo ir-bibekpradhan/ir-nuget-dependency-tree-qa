@@ -1,0 +1,11 @@
+{
+  "description": "NuGet package identity is matched case-insensitively",
+  "project": "CaseNormalization.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": { "Newtonsoft.Json": { "version": "13.0.3", "direct": true } },
+      "edges": [["$root", "Newtonsoft.Json"]],
+      "minPackages": 1
+    }
+  }
+}

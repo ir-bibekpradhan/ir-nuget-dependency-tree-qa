@@ -1,0 +1,16 @@
+{
+  "description": "Larger Azure graph exercises depth, width, and shared nodes",
+  "project": "DeepGraph.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Azure.Identity": { "version": "1.13.2", "direct": true },
+        "Azure.Core": {}
+      },
+      "edges": [["Azure.Identity", "Azure.Core"]],
+      "anyShared": true,
+      "minPackages": 8,
+      "minDepth": 3
+    }
+  }
+}

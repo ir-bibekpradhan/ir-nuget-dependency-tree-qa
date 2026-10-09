@@ -1,0 +1,13 @@
+{
+  "description": "Floating major version resolves to one current 13.x package",
+  "project": "FloatingVersion.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Newtonsoft.Json": { "versionPrefix": "13.", "direct": true }
+      },
+      "edges": [["$root", "Newtonsoft.Json"]],
+      "minPackages": 1
+    }
+  }
+}

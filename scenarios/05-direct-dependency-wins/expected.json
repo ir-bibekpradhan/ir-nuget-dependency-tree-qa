@@ -1,0 +1,18 @@
+{
+  "description": "Direct Serilog 4.1.0 wins over the sink's lower minimum",
+  "project": "DirectDependencyWins.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Serilog": { "version": "4.1.0", "direct": true },
+        "Serilog.Sinks.Console": { "version": "5.0.1", "direct": true }
+      },
+      "edges": [
+        ["$root", "Serilog"],
+        ["Serilog.Sinks.Console", "Serilog"]
+      ],
+      "incoming": { "Serilog": 2 },
+      "minPackages": 2
+    }
+  }
+}

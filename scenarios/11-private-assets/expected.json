@@ -1,0 +1,16 @@
+{
+  "description": "PrivateAssets package remains in the current project's restored graph",
+  "project": "PrivateAssets.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Newtonsoft.Json": { "version": "13.0.3", "direct": true },
+        "xunit": { "version": "2.9.2", "direct": true },
+        "xunit.assert": { "version": "2.9.2", "direct": false }
+      },
+      "edges": [["xunit", "xunit.assert"]],
+      "minPackages": 5,
+      "minDepth": 2
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "description": "Each target framework keeps its own resolved version",
+  "project": "MultiTarget.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": { "Newtonsoft.Json": { "version": "13.0.3", "direct": true } },
+      "edges": [["$root", "Newtonsoft.Json"]]
+    },
+    "netstandard2.0": {
+      "packages": { "Newtonsoft.Json": { "version": "12.0.3", "direct": true } },
+      "edges": [["$root", "Newtonsoft.Json"]]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "description": "Known vulnerable real package keeps its precise transitive path",
+  "project": "VulnerablePackage.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "SixLabors.ImageSharp": { "version": "4.0.0", "direct": true },
+        "System.IO.Hashing": { "version": "8.0.0", "direct": false }
+      },
+      "edges": [
+        ["$root", "SixLabors.ImageSharp"],
+        ["SixLabors.ImageSharp", "System.IO.Hashing"]
+      ],
+      "minPackages": 2,
+      "minDepth": 2
+    }
+  }
+}

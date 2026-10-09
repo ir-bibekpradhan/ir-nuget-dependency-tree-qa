@@ -1,0 +1,7 @@
+{
+  "description": "Locked restore rejects a project/lockfile mismatch",
+  "project": "StaleLockfile.csproj",
+  "mode": "failure",
+  "restoreArgs": ["--locked-mode"],
+  "expectedCodes": ["NU1004"]
+}

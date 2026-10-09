@@ -1,0 +1,7 @@
+{
+  "description": "Direct lower version causes an expected NuGet downgrade failure",
+  "project": "DowngradeFailure.csproj",
+  "mode": "failure",
+  "restoreArgs": ["--use-lock-file", "--force-evaluate"],
+  "expectedCodes": ["NU1605"]
+}

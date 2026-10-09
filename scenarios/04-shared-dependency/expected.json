@@ -1,0 +1,20 @@
+{
+  "description": "One Serilog node has direct and transitive incoming paths",
+  "project": "SharedDependency.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Serilog": { "version": "3.1.1", "direct": true },
+        "Serilog.Sinks.Console": { "version": "5.0.1", "direct": true }
+      },
+      "edges": [
+        ["$root", "Serilog"],
+        ["$root", "Serilog.Sinks.Console"],
+        ["Serilog.Sinks.Console", "Serilog"]
+      ],
+      "incoming": { "Serilog": 2 },
+      "minPackages": 2,
+      "minDepth": 2
+    }
+  }
+}

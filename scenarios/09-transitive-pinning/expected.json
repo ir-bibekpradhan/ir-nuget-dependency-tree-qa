@@ -1,0 +1,14 @@
+{
+  "description": "Central management pins a transitive package to a higher version",
+  "project": "TransitivePinning.csproj",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Serilog.Sinks.Console": { "version": "5.0.1", "direct": true },
+        "Serilog": { "version": "4.1.0" }
+      },
+      "edges": [["Serilog.Sinks.Console", "Serilog"]],
+      "minPackages": 2
+    }
+  }
+}

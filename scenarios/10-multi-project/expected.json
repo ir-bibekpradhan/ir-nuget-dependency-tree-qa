@@ -1,0 +1,16 @@
+{
+  "description": "Application graph includes a referenced project's package dependency",
+  "project": "App/App.csproj",
+  "assets": "App/obj/project.assets.json",
+  "targets": {
+    "net8.0": {
+      "packages": {
+        "Serilog": { "version": "3.1.1", "direct": true },
+        "Newtonsoft.Json": { "version": "13.0.3", "direct": false }
+      },
+      "edges": [["$root", "Serilog"]],
+      "minPackages": 2,
+      "minDepth": 1
+    }
+  }
+}
