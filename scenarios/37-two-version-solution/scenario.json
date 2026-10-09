@@ -2,7 +2,7 @@
   "id": "S19c",
   "name": "two-version-solution",
   "phase": 2,
-  "entry": "App/App.csproj",
+  "entry": "Versions.sln",
   "assets": "App/obj/project.assets.json",
   "lock": "App/packages.lock.json",
   "additionalGraphs": [
