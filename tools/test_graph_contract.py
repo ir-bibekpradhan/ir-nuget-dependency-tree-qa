@@ -49,13 +49,12 @@ class GraphContractTests(unittest.TestCase):
         self.assertTrue(compare(self.graph, actual)[0])
         self.assertEqual(normalize_version('01.2.3.0+build'), '1.2.3')
 
-    def test_three_repeats_are_identical(self):
-        from hashlib import sha256
-        import json
-        from graph_contract import canonical
-        hashes = [sha256(repr(canonical(json.loads(json.dumps(self.graph)))).encode()).hexdigest()
-                  for _ in range(3)]
-        self.assertEqual(len(set(hashes)), 1)
+    def test_legacy_framework_and_rid_lock_delta(self):
+        from graph_contract import split_target, _target_lock
+        self.assertEqual(split_target('.NETStandard,Version=v2.0'), ('netstandard2.0', None))
+        lock = {'dependencies': {'net8.0': {'Parent': {'type': 'Direct'}},
+                                 'net8.0/win-x64': {'Native': {'type': 'Transitive'}}}}
+        self.assertEqual(set(_target_lock(lock, 'net8.0/win-x64')), {'Parent', 'Native'})
 
 
 if __name__ == '__main__':

@@ -113,7 +113,10 @@ if metadata.get("vulnerabilityPackages") or metadata.get('absentAdvisories'):
 ir_argument = []
 shutil.copy2(assets, output / "project.assets.json")
 shutil.copy2(lock, output / "packages.lock.json")
-from graph_contract import build_graph, canonical, load_json
+from graph_contract import build_graph, canonical, load_json, check_listing
+listing_errors = check_listing(build_graph(load_json(assets), load_json(lock), scenario_id), json.loads(list_output))
+if listing_errors:
+    raise SystemExit('; '.join(listing_errors))
 if metadata.get('floating'):
     import urllib.request
     from graph_contract import normalize_version
@@ -189,6 +192,12 @@ for context in metadata.get('additionalGraphs', []):
         raise SystemExit(f"Additional project {context['name']} failed restore")
     context_output = output / context['name']
     context_output.mkdir(exist_ok=True)
+    list_code, context_listing = execute(['dotnet', 'list', str(scenario_dir / context['entry']), 'package',
+                                          '--include-transitive', '--format', 'json'])
+    (context_output / 'list.json').write_text(context_listing, encoding='utf-8')
+    if list_code or check_listing(build_graph(load_json(scenario_dir / context['assets']),
+                                             load_json(scenario_dir / context['lock']), scenario_id), json.loads(context_listing)):
+        raise SystemExit('Additional project package listing differs from assets')
     command = [sys.executable, str(ROOT / 'tools/verify_contract.py'), '--scenario', scenario_id,
                '--assets', str(scenario_dir / context['assets']), '--lock', str(scenario_dir / context['lock']),
                '--expected', str(scenario_dir / context['expected']), '--actual', str(context_output / 'nuget.json'),

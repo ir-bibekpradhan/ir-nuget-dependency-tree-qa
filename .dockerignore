@@ -1,0 +1,8 @@
+.git
+.nuget
+out
+drafts
+results
+**/bin
+**/obj
+**/__pycache__

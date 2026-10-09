@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0.419
 
 ARG PROJECT=scenarios/04-shared-dependency/SharedDependency.csproj
 

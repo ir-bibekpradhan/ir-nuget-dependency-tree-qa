@@ -65,6 +65,8 @@ def build_graph(assets, lock, scenario_id):
             node_type = value.get("type", "package")
             lock_entry = next((entry for name, entry in lock_entries.items()
                                if name.lower() == item_id.lower()), {})
+            if node_type == 'package' and normalize_version(lock_entry.get('resolved', '')) != normalize_version(version):
+                raise ValueError(f'Lock vs assets version mismatch: {item_id}@{version}')
             direct = node_type == "package" and lock_entry.get("type", "").lower() == "direct"
             ref = f"{item_id}@{version}" if node_type == "package" else item_id
             by_id[item_id.lower()] = {"ref": ref, "id": item_id, "version": version,
@@ -88,6 +90,8 @@ def build_graph(assets, lock, scenario_id):
                 child = by_id.get(child_id.lower())
                 if child:
                     edges.append({"from": item["ref"], "to": child["ref"], "requested": requested})
+                else:
+                    raise ValueError(f'Unresolved child in assets: {item["ref"]} -> {child_id}')
 
         adjacency = {}
         for edge in edges:
@@ -118,6 +122,28 @@ def build_graph(assets, lock, scenario_id):
 
     graph["targets"].sort(key=lambda item: (item["framework"], item["rid"] or ""))
     return graph
+
+
+def check_listing(graph, listing):
+    errors = []
+    for target in graph['targets']:
+        root = target['roots'][0]
+        project = next((project for project in listing.get('projects', [])
+                        if Path(project['path']).stem.lower() == root.lower()), None)
+        if project is None:
+            errors.append('Package listing lacks project ' + root)
+            continue
+        framework = next((framework for framework in project.get('frameworks', [])
+                          if split_target(framework['framework'])[0] == target['framework']), None)
+        if framework is None:
+            errors.append('Package listing lacks framework ' + target['framework'])
+            continue
+        listed = {(package['id'].lower(), normalize_version(package['resolvedVersion']))
+                  for field in ('topLevelPackages', 'transitivePackages') for package in framework.get(field, [])}
+        resolved = {(_node_key(node)[1], _node_key(node)[2]) for node in target['nodes'] if node['type'] == 'package'}
+        if listed != resolved:
+            errors.append(f'{root}/{target["framework"]}: listing vs assets difference {listed ^ resolved}')
+    return errors
 
 
 def _node_key(node):
