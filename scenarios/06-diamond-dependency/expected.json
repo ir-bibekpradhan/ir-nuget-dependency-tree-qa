@@ -14,7 +14,7 @@
         ["Microsoft.Extensions.Configuration.FileExtensions", "Microsoft.Extensions.Configuration"],
         ["Microsoft.Extensions.Configuration.EnvironmentVariables", "Microsoft.Extensions.Configuration"]
       ],
-      "incoming": { "Microsoft.Extensions.Configuration": 2 },
+      "incoming": { "Microsoft.Extensions.Configuration": 3 },
       "anyShared": true,
       "minPackages": 8,
       "minDepth": 3
