@@ -2,7 +2,7 @@
 
 Restores original Serilog 3.1.1 and Console 5.0.1, verifies the full graph and preserves baseline assets/lock/listing outside the scanner work directory.
 
-After successful verification, assets are replaced with malformed JSON and the lock is removed. A scoped dotnet PATH wrapper supplies both JSON and text listings captured from the real restore, while delegating all other commands to the original dotnet executable. This makes the package-list fallback input deterministic without invented package data. The wrapper writes IR_QA_LIST_FALLBACK_REPLAY on invocation.
+After successful verification, assets are replaced with malformed JSON and the lock is removed. A scoped dotnet PATH wrapper supplies both JSON and text listings captured from the real restore, while delegating all other commands to the original dotnet executable. This makes the package-list fallback input deterministic without invented package data. The post-cleanup IR_QA_LIST_FALLBACK_TRACE logs invocation counts without contaminating the captured listing. One call is the reference probe; extra calls indicate subsequent collector use.
 
 IR must preserve package IDs/versions. A flat list alone cannot establish Console -> Serilog; IR should identify reduced relationship evidence or prove reconstructed edges against the preserved full graph. Confirm the collector actually selected the wrapper fallback from post-collection diagnostics before marking the IR test passed.
 

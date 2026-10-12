@@ -13,7 +13,6 @@ if config.get('fallback') and 'list' in arguments and 'package' in arguments:
     kind = 'json' if 'json' in arguments or '--format=json' in arguments else 'text'
     with (directory / 'invocations.jsonl').open('a', encoding='utf-8') as log:
         log.write(json.dumps({'command': 'list-package', 'format': kind}) + '\n')
-    sys.stderr.write('IR_QA_LIST_FALLBACK_REPLAY\n')
     sys.stdout.buffer.write((directory / ('package-list.' + kind)).read_bytes())
     raise SystemExit(0)
 if config.get('restoreControls') and arguments and arguments[0] == 'restore':

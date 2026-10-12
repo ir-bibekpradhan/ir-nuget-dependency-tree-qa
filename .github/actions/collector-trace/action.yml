@@ -1,0 +1,7 @@
+name: Report scoped collector fixture invocations
+description: Register a post hook to inspect replay invocations after PSE cleanup
+runs:
+  using: node24
+  main: register.js
+  post: report.js
+  post-if: always()

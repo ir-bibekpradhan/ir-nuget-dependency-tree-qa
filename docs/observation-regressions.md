@@ -29,7 +29,7 @@ The original project files were not attached to the observation report. These fi
 
 First verify a real Serilog/Console restore and capture both dotnet list JSON and text output. Then remove assets (R03) or corrupt their JSON (R04), and remove the lock. A scoped dotnet wrapper replays those real listings for package-list commands and delegates all other commands to the genuine executable.
 
-The wrapper emits IR_QA_LIST_FALLBACK_REPLAY when selected. Confirm fallback invocation in the production collector's post-step diagnostics. If the collector uses a different executable/path or never invokes the listing, record the case as not exercised rather than a pass. NuGet/reference verification tests the replay inputs only.
+The wrapper preserves the listing bytes without injecting diagnostic text into stdout/stderr. After PSE cleanup, the workflow logs IR_QA_LIST_FALLBACK_TRACE with invocation counts. One invocation is the reference probe; additional invocations establish that the replay was called during subsequent collection. Confirm those additional calls before marking fallback exercised. If the collector uses a different executable/path or never invokes the listing, record the case as not exercised rather than a pass. NuGet/reference verification tests the replay inputs only.
 
 The fallback must keep correct IDs/versions and direct flags. A flat list does not prove transitive edges; IR should label reduced relationship evidence unless it reconstructs and verifies those edges from another source. Compare with the preserved baseline nuget.json. These deterministic inputs use original packages, not fabricated dependency metadata.
 

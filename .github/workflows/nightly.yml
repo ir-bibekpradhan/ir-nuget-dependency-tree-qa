@@ -43,6 +43,11 @@ jobs:
       NUGET_HTTP_CACHE_PATH: ${{ github.workspace }}/.nuget/http-${{ matrix.scenario.id }}
 
     steps:
+      - uses: actions/checkout@v5
+      - name: Register post-collection replay trace
+        uses: ./.github/actions/collector-trace
+        env:
+          QA_SCENARIO_PATH: ${{ matrix.scenario.path }}
       - name: Set up InvisiRisk PSE
         if: env.IR_TOKEN != '' && github.event_name == 'workflow_dispatch' && inputs.use_pse
         uses: invisirisk/pse-action@latest
@@ -54,7 +59,6 @@ jobs:
           job_identifier: nuget-nightly-${{ matrix.scenario.id }}
           job_label: Nightly ${{ matrix.scenario.id }} - ${{ matrix.scenario.name }}
 
-      - uses: actions/checkout@v5
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ matrix.scenario.sdk }}
