@@ -1,0 +1,33 @@
+{
+  "id": "R01",
+  "name": "report-project-contexts",
+  "phase": 2,
+  "sdk": "9.0.305",
+  "entry": "Observation.sln",
+  "assets": "src/Storefront/obj/project.assets.json",
+  "lock": "src/Storefront/packages.lock.json",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "projectContext",
+    "sameParentDifferentChild",
+    "frameworkBranch",
+    "projectReference",
+    "restoreStatus"
+  ],
+  "additionalGraphs": [
+    {
+      "name": "Shared.Identity",
+      "entry": "src/Shared.Identity/Shared.Identity.csproj",
+      "assets": "src/Shared.Identity/obj/project.assets.json",
+      "lock": "src/Shared.Identity/packages.lock.json",
+      "expected": "expected/Shared.Identity.json"
+    }
+  ],
+  "contextRules": "expected/context-rules.json"
+}

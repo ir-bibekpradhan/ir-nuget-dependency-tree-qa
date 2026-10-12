@@ -31,13 +31,19 @@ os.environ.setdefault('NUGET_HTTP_CACHE_PATH', str(ROOT / '.nuget' / ('http-' + 
 
 
 def execute(command, cwd=scenario_dir):
-    result = subprocess.run(command, cwd=cwd, text=True, capture_output=True, timeout=600)
-    combined = result.stdout + result.stderr
+    result = subprocess.run(command, cwd=cwd, capture_output=True, timeout=600)
+    combined = (result.stdout + result.stderr).decode('utf-8', errors='replace')
     print(combined, flush=True)
     return result.returncode, combined
 
 
 restore = metadata["restore"]
+if metadata.get('restoreOutputControls'):
+    from collector_fixtures import install_wrapper
+    control_directory, control_binary = install_wrapper(scenario_dir, shutil.which('dotnet'), restore_controls=True)
+    if os.environ.get('GITHUB_PATH'):
+        with open(os.environ['GITHUB_PATH'], 'a', encoding='utf-8') as path_file:
+            path_file.write(str(control_binary) + '\n')
 if metadata.get('localFeed'):
     from local_feed import prepare
     prepare(scenario_dir)
@@ -65,6 +71,14 @@ missing_codes = [item for item in expected_codes if item not in restore_output]
 
 if not restore["expectSuccess"]:
     passed = code != 0 and not missing_codes
+    project_states = []
+    if metadata.get('expectedProjectResults'):
+        from partial_restore import inspect_partial
+        try:
+            project_states = inspect_partial(scenario_dir, output, metadata['expectedProjectResults'])
+        except (ValueError, FileNotFoundError, json.JSONDecodeError) as error:
+            passed = False
+            (output / 'partial-error.txt').write_text(str(error), encoding='utf-8')
     result = {
         "scenario": scenario_id,
         "expectedRestoreSuccess": False,
@@ -72,6 +86,8 @@ if not restore["expectSuccess"]:
         "expectedCodes": expected_codes,
         "missingCodes": missing_codes,
         "passed": passed,
+        "projectStates": project_states,
+        "irStatus": "manual: failed or partial restore, no complete successful graph",
     }
     (output / "diff.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     (output / "summary.md").write_text(
@@ -185,6 +201,14 @@ verify_command = [
 verify_code, _ = execute(verify_command)
 if verify_code != 0:
     raise SystemExit(f"{scenario_id}: graph contract comparison failed")
+if metadata.get('restoreOutputControls'):
+    from collector_fixtures import transport_envelope
+    if '\t' not in restore_output or '\r' not in restore_output:
+        raise SystemExit('Raw restore controls were not preserved')
+    envelope = transport_envelope(restore_output, load_json(output / 'nuget.json'))
+    (output / 'reference-envelope.json').write_text(envelope + '\n', encoding='utf-8')
+    with (output / 'summary.md').open('a', encoding='utf-8') as summary:
+        summary.write('- Raw tab/CR preservation and reference JSON envelope round-trip: PASS\n- Actual IR envelope verdict: manual\n')
 for context in metadata.get('additionalGraphs', []):
     context_code, context_log = execute(['dotnet', 'restore', str(scenario_dir / context['entry']), '--locked-mode'])
     (output / (context['name'] + '-restore.log')).write_text(context_log, encoding='utf-8')
@@ -237,6 +261,14 @@ if metadata.get('afterRestore'):
                               '--summary', str(after_output / 'summary.md')])
     if after_verify:
         raise SystemExit('Changed version graph differs from reviewed expectation')
+if metadata.get('contextRules'):
+    from context_rules import check_context_rules
+    graphs = [load_json(output / 'nuget.json')] + [load_json(output / context['name'] / 'nuget.json')
+                                                 for context in metadata.get('additionalGraphs', [])]
+    context_errors = check_context_rules(graphs, load_json(scenario_dir / metadata['contextRules']))
+    (output / 'context-rules.json').write_text(json.dumps({'passed': not context_errors, 'errors': context_errors}, indent=2) + '\n', encoding='utf-8')
+    if context_errors:
+        raise SystemExit('; '.join(context_errors))
 if metadata.get('localFeed'):
     sources = {}
     for package in load_json(scenario_dir / 'feed.json'):
@@ -261,6 +293,11 @@ if metadata.get('mutateEvidence'):
     (output / 'mutation.json').write_text(json.dumps({'mutation': mutation, 'expectedIR': 'evidence error or explicitly reduced confidence'}, indent=2) + '\n', encoding='utf-8')
     with (output / 'summary.md').open('a', encoding='utf-8') as summary:
         summary.write(f"- Evidence deliberately altered before PSE collection: {mutation}\n")
+if metadata.get('fallbackFixture'):
+    from collector_fixtures import configure_fallback
+    configure_fallback(scenario_dir, output, entry, assets, lock, scenario_id, metadata['fallbackFixture'])
+    with (output / 'summary.md').open('a', encoding='utf-8') as summary:
+        summary.write('- Missing/malformed assets and real package-list fallback replay: ready\n- Actual IR fallback selection and graph verdict: manual\n')
 metrics = load_json(output / 'metrics.json')
 metrics['totalSeconds'] = time.perf_counter() - started
 try:

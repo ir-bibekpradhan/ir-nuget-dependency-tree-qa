@@ -1,0 +1,40 @@
+{
+  "edges": [
+    {
+      "project": "Storefront",
+      "framework": "net8.0",
+      "from": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+      "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+    },
+    {
+      "project": "Shared.Identity",
+      "framework": "net8.0",
+      "from": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+      "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2"
+    },
+    {
+      "project": "Storefront",
+      "framework": "net9.0",
+      "from": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+      "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+    },
+    {
+      "project": "Shared.Identity",
+      "framework": "net9.0",
+      "from": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+      "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1"
+    },
+    {
+      "project": "Storefront",
+      "framework": "net8.0",
+      "from": "Storefront",
+      "to": "Shared.Identity"
+    },
+    {
+      "project": "Storefront",
+      "framework": "net9.0",
+      "from": "Storefront",
+      "to": "Shared.Identity"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import fnmatch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +15,7 @@ args = parser.parse_args()
 items = []
 for path in sorted((ROOT / "scenarios").glob("*/scenario.json")):
     data = json.loads(path.read_text(encoding="utf-8"))
-    if args.scenario != 'all' and data['id'].lower() != args.scenario.lower():
+    if args.scenario != 'all' and not any(fnmatch.fnmatchcase(data['id'].lower(), pattern.strip().lower()) for pattern in args.scenario.split(',')):
         continue
     if args.phase != 'all' and str(data['phase']) != args.phase:
         continue
@@ -32,6 +33,7 @@ for path in sorted((ROOT / "scenarios").glob("*/scenario.json")):
             "name": data["name"],
             "path": path.parent.relative_to(ROOT).as_posix(),
             "os": data.get("os", "ubuntu-latest"),
+            "sdk": data.get("sdk", "8.0.419"),
         })
 
 if not items:

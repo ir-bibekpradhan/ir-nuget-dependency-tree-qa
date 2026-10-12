@@ -9,5 +9,6 @@ drafts/
 scenarios/03-floating-version/packages.lock.json
 **/feed/*.nupkg
 **/duplicate-feed/*.nupkg
+**/.qa/
 **/__pycache__/
 **/*.pyc

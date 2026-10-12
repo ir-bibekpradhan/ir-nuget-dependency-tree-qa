@@ -16,8 +16,15 @@ result = subprocess.run(['dotnet', 'restore', str(entry), '--use-lock-file', '--
                         cwd=folder, text=True, capture_output=True, timeout=600)
 print(result.stdout + result.stderr)
 (output / 'restore.log').write_text(result.stdout + result.stderr, encoding='utf-8')
-if result.returncode:
+if result.returncode and metadata['restore']['expectSuccess']:
     raise SystemExit(result.returncode)
+if not metadata['restore']['expectSuccess']:
+    if not result.returncode or any(code not in result.stdout + result.stderr for code in metadata['restore']['expectedCodes']):
+        raise SystemExit('Expected restore failure was absent')
+    from partial_restore import inspect_partial
+    states = inspect_partial(folder, output, metadata['expectedProjectResults'])
+    (output / 'project-states.json').write_text(json.dumps(states, indent=2) + '\n', encoding='utf-8')
+    raise SystemExit(0)
 assets = folder / metadata.get('assets', 'obj/project.assets.json')
 lock = folder / metadata.get('lock', 'packages.lock.json')
 graph = build_graph(load_json(assets), load_json(lock), metadata['id'])
@@ -43,3 +50,10 @@ for context in metadata.get('additionalGraphs', []):
         destination = output / path.relative_to(folder)
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, destination)
+if metadata.get('contextRules'):
+    from context_rules import check_context_rules
+    graphs = [load_json(output / 'expected/graph.json')] + [load_json(output / context['expected'])
+                                                         for context in metadata.get('additionalGraphs', [])]
+    errors = check_context_rules(graphs, load_json(folder / metadata['contextRules']))
+    if errors:
+        raise SystemExit('; '.join(errors))

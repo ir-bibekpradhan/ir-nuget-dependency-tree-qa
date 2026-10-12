@@ -1,0 +1,17 @@
+{
+  "id": "R03",
+  "name": "fallback-missing-assets",
+  "phase": 2,
+  "entry": "FallbackMissingAssets.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "baselineGraph",
+    "collectorRobustness"
+  ],
+  "fallbackFixture": "missing"
+}

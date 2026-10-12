@@ -11,7 +11,7 @@ on:
         options: [all, deterministic, nightly]
         default: all
       scenario:
-        description: One scenario ID (e.g. S04), or all
+        description: Scenario ID, comma-separated IDs, wildcard (e.g. R*), or all
         default: all
       phase:
         description: Phase 1, 2, 3, or all
@@ -73,7 +73,7 @@ jobs:
       - name: Set up pinned .NET SDK
         uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.419
+          dotnet-version: ${{ matrix.scenario.sdk }}
 
       - name: Validate scenario contract
         run: |

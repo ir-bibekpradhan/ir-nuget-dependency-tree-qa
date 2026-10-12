@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 8.0.419
+          dotnet-version: ${{ matrix.scenario.sdk }}
       - run: python tools/run_scenario.py "${{ matrix.scenario.path }}"
       - if: always()
         uses: actions/upload-artifact@v4

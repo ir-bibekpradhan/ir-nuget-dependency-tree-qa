@@ -1,0 +1,17 @@
+{
+  "id": "R05",
+  "name": "restore-control-characters",
+  "phase": 2,
+  "entry": "RestoreOutputControls.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "baselineGraph",
+    "collectorRobustness"
+  ],
+  "restoreOutputControls": true
+}

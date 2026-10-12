@@ -1,0 +1,40 @@
+{
+  "id": "R02",
+  "name": "report-partial-downgrade",
+  "phase": 2,
+  "sdk": "9.0.305",
+  "entry": "Observation.sln",
+  "assets": "src/Storefront/obj/project.assets.json",
+  "lock": "src/Storefront/packages.lock.json",
+  "restore": {
+    "mode": "generate",
+    "expectSuccess": false,
+    "expectedCodes": [
+      "NU1605"
+    ]
+  },
+  "deterministic": true,
+  "nightly": false,
+  "capture": true,
+  "checks": [
+    "projectContext",
+    "sameParentDifferentChild",
+    "frameworkBranch",
+    "projectReference",
+    "restoreStatus"
+  ],
+  "expectedProjectResults": [
+    {
+      "project": "Storefront",
+      "assets": "src/Storefront/obj/project.assets.json",
+      "errorCodes": []
+    },
+    {
+      "project": "Shared.Identity",
+      "assets": "src/Shared.Identity/obj/project.assets.json",
+      "errorCodes": [
+        "NU1605"
+      ]
+    }
+  ]
+}

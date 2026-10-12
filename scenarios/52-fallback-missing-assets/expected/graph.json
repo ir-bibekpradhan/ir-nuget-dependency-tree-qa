@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "scenario": "R03",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "FallbackMissingAssets"
+      ],
+      "nodes": [
+        {
+          "id": "Serilog.Sinks.Console@5.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Serilog@3.1.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "FallbackMissingAssets",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Serilog.Sinks.Console@5.0.1",
+          "to": "Serilog@3.1.1",
+          "requested": "3.1.1"
+        },
+        {
+          "from": "FallbackMissingAssets",
+          "to": "Serilog.Sinks.Console@5.0.1",
+          "requested": "[5.0.1, 5.0.1]"
+        },
+        {
+          "from": "FallbackMissingAssets",
+          "to": "Serilog@3.1.1",
+          "requested": "[3.1.1, 3.1.1]"
+        }
+      ],
+      "paths": {
+        "Serilog.Sinks.Console@5.0.1": [
+          [
+            "FallbackMissingAssets"
+          ]
+        ],
+        "Serilog@3.1.1": [
+          [
+            "FallbackMissingAssets"
+          ],
+          [
+            "FallbackMissingAssets",
+            "Serilog.Sinks.Console@5.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

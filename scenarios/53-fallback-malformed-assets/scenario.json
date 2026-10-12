@@ -1,0 +1,17 @@
+{
+  "id": "R04",
+  "name": "fallback-malformed-assets",
+  "phase": 2,
+  "entry": "FallbackMalformedAssets.csproj",
+  "restore": {
+    "mode": "locked",
+    "expectSuccess": true
+  },
+  "deterministic": true,
+  "nightly": false,
+  "checks": [
+    "baselineGraph",
+    "collectorRobustness"
+  ],
+  "fallbackFixture": "malformed"
+}

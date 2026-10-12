@@ -1,0 +1,17 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storefront", "src/Storefront/Storefront.csproj", "{32B09C2E-CFA5-40E1-A334-F75642444A01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Identity", "src/Shared.Identity/Shared.Identity.csproj", "{32B09C2E-CFA5-40E1-A334-F75642444A02}"
+EndProject
+Global
+  GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|Any CPU = Debug|Any CPU
+  EndGlobalSection
+  GlobalSection(ProjectConfigurationPlatforms) = postSolution
+    {32B09C2E-CFA5-40E1-A334-F75642444A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {32B09C2E-CFA5-40E1-A334-F75642444A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {32B09C2E-CFA5-40E1-A334-F75642444A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {32B09C2E-CFA5-40E1-A334-F75642444A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+  EndGlobalSection
+EndGlobal
