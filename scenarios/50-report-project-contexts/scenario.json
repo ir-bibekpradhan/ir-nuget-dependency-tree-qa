@@ -12,7 +12,6 @@
   },
   "deterministic": true,
   "nightly": false,
-  "capture": true,
   "checks": [
     "projectContext",
     "sameParentDifferentChild",

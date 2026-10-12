@@ -1,6 +1,6 @@
 # InvisiRisk NuGet dependency-tree QA
 
-49 isolated fixtures cover the 24 scenario families in the approved NuGet QA plan. Ordinary resolution fixtures use original NuGet.org packages. Only the local-feed and depth/fan-out fixtures use deliberately synthetic packages, as requested in the plan.
+54 isolated fixtures cover the 24 scenario families in the approved NuGet QA plan plus five observation-report regressions. Ordinary resolution fixtures use original NuGet.org packages. Only the local-feed and depth/fan-out fixtures use deliberately synthetic packages, as requested in the plan.
 
 See [COVERAGE.md](COVERAGE.md) for scenario IDs, package choices and expected IR behavior. Each folder has scenario.json, project files, a README and reviewed expected graphs. Deterministic fixtures have fixed inputs; floating and advisory checks use current feed metadata.
 
@@ -10,6 +10,7 @@ Open **Actions → NuGet dependency graph QA → Run workflow**.
 
 - Choose `all` to run every fixture, `deterministic` for stable regression checks, or `nightly` for floating, vulnerability and scale cases.
 - Set `scenario` to one ID, such as `S04`, or leave `all`.
+- Use `R*` to run only the five observation-report fixtures, or comma-separated IDs such as `R01,R02`. See [the report regression guide](docs/observation-regressions.md).
 - Set `phase` to `1`, `2`, `3`, or `all`.
 - Leave `use_pse` checked to submit scans to IR. Uncheck it for NuGet reference verification only. Push/PR checks verify references without submitting scans.
 
@@ -22,6 +23,8 @@ PSE uses the repository's `IR_TOKEN` secret and https://app.stage.invisirisk.com
 ## Ground truth and pass criteria
 
 The SDK is pinned to **8.0.419**. A root NuGet.Config clears inherited sources, and package/HTTP caches are isolated per scenario. Fixed-version fixtures restore against committed locks where applicable. Unlocked, floating, synthetic and warning fixtures intentionally generate fresh locks.
+
+R01/R02 pin SDK **9.0.305** in their own global.json files to restore net8.0 and net9.0 together. Workflow SDK selection follows scenario metadata; existing SDK 8 fixtures retain their version.
 
 For every successful restore, the verifier compares complete package/project nodes, root edges, dependency edges, requested constraints, direct flags and all parent paths with expected graphs, separated by framework/RID/project context. Duplicate nodes/edges/paths and dangling edges fail verification. Shared dependencies must retain every incoming path.
 

@@ -40,7 +40,9 @@ jobs:
           QA_MODE: ${{ inputs.mode || 'deterministic' }}
           QA_SCENARIO: ${{ inputs.scenario || 'all' }}
           QA_PHASE: ${{ inputs.phase || 'all' }}
-        run: echo "matrix=$(python3 tools/discover.py --mode "$QA_MODE" --scenario "$QA_SCENARIO" --phase "$QA_PHASE")" >> "$GITHUB_OUTPUT"
+        run: |
+          QA_MATRIX="$(python3 tools/discover.py --mode "$QA_MODE" --scenario "$QA_SCENARIO" --phase "$QA_PHASE")"
+          echo "matrix=$QA_MATRIX" >> "$GITHUB_OUTPUT"
 
   scenario:
     needs: discover

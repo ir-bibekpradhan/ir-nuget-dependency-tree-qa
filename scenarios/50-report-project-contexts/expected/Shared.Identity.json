@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "scenario": "R01",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "Shared.Identity"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Abstractions@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Logging@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Tokens@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.IdentityModel.Tokens.Jwt@7.1.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Shared.Identity",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+          "to": "Microsoft.IdentityModel.Tokens@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Logging@7.1.2",
+          "to": "Microsoft.IdentityModel.Abstractions@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+          "to": "Microsoft.IdentityModel.Protocols@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+          "to": "System.IdentityModel.Tokens.Jwt@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols@7.1.2",
+          "to": "Microsoft.IdentityModel.Logging@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols@7.1.2",
+          "to": "Microsoft.IdentityModel.Tokens@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@7.1.2",
+          "to": "Microsoft.IdentityModel.Logging@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "requested": "[8.0.22, 8.0.22]"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+          "requested": "[7.1.2, )"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@7.1.2",
+          "to": "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@7.1.2",
+          "to": "Microsoft.IdentityModel.Tokens@7.1.2",
+          "requested": "7.1.2"
+        }
+      ],
+      "paths": {
+        "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22": [
+          [
+            "Shared.Identity"
+          ]
+        ],
+        "Microsoft.IdentityModel.Abstractions@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2",
+            "Microsoft.IdentityModel.Logging@7.1.2"
+          ]
+        ],
+        "Microsoft.IdentityModel.JsonWebTokens@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2"
+          ]
+        ],
+        "Microsoft.IdentityModel.Logging@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.Tokens@7.1.2"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2": [
+          [
+            "Shared.Identity"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2"
+          ]
+        ],
+        "Microsoft.IdentityModel.Tokens@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "Microsoft.IdentityModel.Protocols@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2",
+            "System.IdentityModel.Tokens.Jwt@7.1.2",
+            "Microsoft.IdentityModel.JsonWebTokens@7.1.2"
+          ]
+        ],
+        "System.IdentityModel.Tokens.Jwt@7.1.2": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@7.1.2"
+          ]
+        ]
+      }
+    },
+    {
+      "framework": "net9.0",
+      "rid": null,
+      "roots": [
+        "Shared.Identity"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Abstractions@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Logging@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Tokens@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.IdentityModel.Tokens.Jwt@8.0.1",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Shared.Identity",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+          "to": "Microsoft.IdentityModel.Tokens@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Logging@8.0.1",
+          "to": "Microsoft.IdentityModel.Abstractions@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+          "to": "Microsoft.IdentityModel.Protocols@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+          "to": "System.IdentityModel.Tokens.Jwt@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols@8.0.1",
+          "to": "Microsoft.IdentityModel.Tokens@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.0.1",
+          "to": "Microsoft.IdentityModel.Logging@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "requested": "[9.0.9, 9.0.9]"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+          "requested": "[8.0.1, )"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.0.1",
+          "to": "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.0.1",
+          "to": "Microsoft.IdentityModel.Tokens@8.0.1",
+          "requested": "8.0.1"
+        }
+      ],
+      "paths": {
+        "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9": [
+          [
+            "Shared.Identity"
+          ]
+        ],
+        "Microsoft.IdentityModel.Abstractions@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1",
+            "Microsoft.IdentityModel.Logging@8.0.1"
+          ]
+        ],
+        "Microsoft.IdentityModel.JsonWebTokens@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1"
+          ]
+        ],
+        "Microsoft.IdentityModel.Logging@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.Tokens@8.0.1"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1": [
+          [
+            "Shared.Identity"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1"
+          ]
+        ],
+        "Microsoft.IdentityModel.Tokens@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "Microsoft.IdentityModel.Protocols@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1",
+            "System.IdentityModel.Tokens.Jwt@8.0.1",
+            "Microsoft.IdentityModel.JsonWebTokens@8.0.1"
+          ]
+        ],
+        "System.IdentityModel.Tokens.Jwt@8.0.1": [
+          [
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1"
+          ],
+          [
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.0.1"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

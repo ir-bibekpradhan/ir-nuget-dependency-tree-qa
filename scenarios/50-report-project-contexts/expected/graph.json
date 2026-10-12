@@ -1,0 +1,1649 @@
+{
+  "schemaVersion": 1,
+  "scenario": "R01",
+  "targets": [
+    {
+      "framework": "net8.0",
+      "rid": null,
+      "roots": [
+        "Storefront"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Bcl.Cryptography@10.0.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Abstractions@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Logging@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.Formats.Asn1@10.0.2",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.IdentityModel.Tokens.Jwt@8.22.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Shared.Identity",
+          "type": "project"
+        },
+        {
+          "id": "Storefront",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Microsoft.Bcl.Cryptography@10.0.2",
+          "to": "System.Formats.Asn1@10.0.2",
+          "requested": "10.0.2"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Logging@8.22.0",
+          "to": "Microsoft.IdentityModel.Abstractions@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "to": "Microsoft.IdentityModel.Protocols@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "to": "System.IdentityModel.Tokens.Jwt@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols@8.22.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "to": "Microsoft.Bcl.Cryptography@10.0.2",
+          "requested": "10.0.2"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "to": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "to": "Microsoft.IdentityModel.Logging@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "requested": "[8.0.22]"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "requested": "7.1.2"
+        },
+        {
+          "from": "Storefront",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+          "requested": "[8.0.22, 8.0.22]"
+        },
+        {
+          "from": "Storefront",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+          "requested": "[8.22.0, )"
+        },
+        {
+          "from": "Storefront",
+          "to": "Shared.Identity",
+          "requested": null
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.22.0",
+          "to": "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+          "requested": "8.22.0"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.22.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.22.0",
+          "requested": "8.22.0"
+        }
+      ],
+      "paths": {
+        "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22": [
+          [
+            "Storefront"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity"
+          ]
+        ],
+        "Microsoft.Bcl.Cryptography@10.0.2": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ]
+        ],
+        "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Logging.Abstractions@8.0.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Abstractions@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.IdentityModel.Logging@8.22.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.JsonWebTokens@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Logging@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0": [
+          [
+            "Storefront"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Tokens@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0"
+          ]
+        ],
+        "Shared.Identity": [
+          [
+            "Storefront"
+          ]
+        ],
+        "System.Formats.Asn1@10.0.2": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "Microsoft.IdentityModel.Protocols@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0",
+            "System.IdentityModel.Tokens.Jwt@8.22.0",
+            "Microsoft.IdentityModel.Tokens@8.22.0",
+            "Microsoft.Bcl.Cryptography@10.0.2"
+          ]
+        ],
+        "System.IdentityModel.Tokens.Jwt@8.22.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"
+          ]
+        ]
+      }
+    },
+    {
+      "framework": "net9.0",
+      "rid": null,
+      "roots": [
+        "Storefront"
+      ],
+      "nodes": [
+        {
+          "id": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Abstractions@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Logging@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "type": "package",
+          "direct": true
+        },
+        {
+          "id": "Microsoft.IdentityModel.Protocols@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "System.IdentityModel.Tokens.Jwt@8.14.0",
+          "type": "package",
+          "direct": false
+        },
+        {
+          "id": "Shared.Identity",
+          "type": "project"
+        },
+        {
+          "id": "Storefront",
+          "type": "project"
+        }
+      ],
+      "edges": [
+        {
+          "from": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "to": "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Logging@8.14.0",
+          "to": "Microsoft.IdentityModel.Abstractions@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "to": "Microsoft.IdentityModel.Protocols@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "to": "System.IdentityModel.Tokens.Jwt@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Protocols@8.14.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "to": "Microsoft.Extensions.Logging.Abstractions@8.0.0",
+          "requested": "8.0.0"
+        },
+        {
+          "from": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "to": "Microsoft.IdentityModel.Logging@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "requested": "[9.0.9]"
+        },
+        {
+          "from": "Shared.Identity",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "requested": "8.0.1"
+        },
+        {
+          "from": "Storefront",
+          "to": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+          "requested": "[9.0.9, 9.0.9]"
+        },
+        {
+          "from": "Storefront",
+          "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+          "requested": "[8.14.0, )"
+        },
+        {
+          "from": "Storefront",
+          "to": "Shared.Identity",
+          "requested": null
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.14.0",
+          "to": "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+          "requested": "8.14.0"
+        },
+        {
+          "from": "System.IdentityModel.Tokens.Jwt@8.14.0",
+          "to": "Microsoft.IdentityModel.Tokens@8.14.0",
+          "requested": "8.14.0"
+        }
+      ],
+      "paths": {
+        "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9": [
+          [
+            "Storefront"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity"
+          ]
+        ],
+        "Microsoft.Extensions.DependencyInjection.Abstractions@8.0.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.Extensions.Logging.Abstractions@8.0.0"
+          ]
+        ],
+        "Microsoft.Extensions.Logging.Abstractions@8.0.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Abstractions@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0",
+            "Microsoft.IdentityModel.Logging@8.14.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.JsonWebTokens@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Logging@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.Tokens@8.14.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0": [
+          [
+            "Storefront"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9"
+          ]
+        ],
+        "Microsoft.IdentityModel.Protocols@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ]
+        ],
+        "Microsoft.IdentityModel.Tokens@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "Microsoft.IdentityModel.Protocols@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0",
+            "System.IdentityModel.Tokens.Jwt@8.14.0",
+            "Microsoft.IdentityModel.JsonWebTokens@8.14.0"
+          ]
+        ],
+        "Shared.Identity": [
+          [
+            "Storefront"
+          ]
+        ],
+        "System.IdentityModel.Tokens.Jwt@8.14.0": [
+          [
+            "Storefront",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ],
+          [
+            "Storefront",
+            "Shared.Identity",
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"
+          ]
+        ]
+      }
+    }
+  ],
+  "vulnerabilities": []
+}

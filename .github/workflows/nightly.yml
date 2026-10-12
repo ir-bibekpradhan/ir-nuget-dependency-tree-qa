@@ -24,7 +24,9 @@ jobs:
       - uses: actions/checkout@v5
       - id: scenarios
         shell: bash
-        run: echo "matrix=$(python3 tools/discover.py --mode nightly)" >> "$GITHUB_OUTPUT"
+        run: |
+          QA_MATRIX="$(python3 tools/discover.py --mode nightly)"
+          echo "matrix=$QA_MATRIX" >> "$GITHUB_OUTPUT"
 
   scenario:
     needs: discover

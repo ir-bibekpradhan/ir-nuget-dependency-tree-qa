@@ -39,3 +39,15 @@ Synthetic feed tests emulate a private feed locally without credentials. An auth
 - Repeat stable Phase 1 scans five times. Compare UI/API/SBOM identities and paths across repeated scans, then confirm the changed S24 version removes stale results.
 
 The workflows verify NuGet ground truth. IR product acceptance is recorded separately when you run the scans; PSE submission alone does not prove graph accuracy.
+
+## Observation report regressions (2026-10-09)
+
+| ID | Added coverage |
+|---|---|
+| R01 | Storefront -> Shared.Identity, net8/net9, same JwtBearer parent identity with different resolved children by project, explicit context edge assertions |
+| R02 | Report's partial NU1605 downgrade: Storefront success and Shared.Identity failure; preserve valid-JSON assets and separate diagnostics |
+| R03 | Missing assets and lock force a controlled real package-list fallback input |
+| R04 | Malformed assets plus real package-list fallback input |
+| R05 | Tabs, bare CR and CRLF in real restore output; escaped reference JSON envelope round-trip |
+
+R01 is the successful companion to the report's failed R02. R03-R05 are robustness extensions, not findings proved by the report. Their reference checks validate the inputs; actual production collector fallback choice and envelope handling are checked in the manual PSE run. No stale-assets claim is inferred from R02's restore failure.

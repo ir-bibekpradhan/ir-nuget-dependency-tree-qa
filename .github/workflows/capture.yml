@@ -11,7 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - id: scenarios
-        run: echo "matrix=$(python3 tools/discover.py --mode capture)" >> "$GITHUB_OUTPUT"
+        run: |
+          QA_MATRIX="$(python3 tools/discover.py --mode capture)"
+          echo "matrix=$QA_MATRIX" >> "$GITHUB_OUTPUT"
   capture:
     needs: discover
     runs-on: ${{ matrix.scenario.os }}

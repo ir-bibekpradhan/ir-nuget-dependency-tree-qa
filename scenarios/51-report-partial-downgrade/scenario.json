@@ -15,7 +15,6 @@
   },
   "deterministic": true,
   "nightly": false,
-  "capture": true,
   "checks": [
     "projectContext",
     "sameParentDifferentChild",
@@ -27,7 +26,12 @@
     {
       "project": "Storefront",
       "assets": "src/Storefront/obj/project.assets.json",
-      "errorCodes": []
+      "errorCodes": [],
+      "resolvedEdges": [
+        {"framework": "net8.0", "from": "Microsoft.AspNetCore.Authentication.JwtBearer@8.0.22", "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.22.0"},
+        {"framework": "net9.0", "from": "Microsoft.AspNetCore.Authentication.JwtBearer@9.0.9", "to": "Microsoft.IdentityModel.Protocols.OpenIdConnect@8.14.0"}
+      ],
+      "projectReferences": ["Shared.Identity"]
     },
     {
       "project": "Shared.Identity",
